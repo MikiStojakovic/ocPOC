@@ -19,11 +19,23 @@
     <div id="app"></div>
     <script type="text/babel">
       class App extends React.Component {
+        state = {
+          name: 'oc1',
+          id: 1
+        };
+
+        handleClick(e) {
+          console.log(e.target);
+        }
+
         render() {
           return (
             <div className="app-content">
               <h1>Hello, ninjas!</h1>
-              <p>Random number: ${Math.random() * 10}</p>
+              <p>
+                oc name is: {this.state.name} and oc id is: {this.state.id}
+              </p>
+              <button onClick={this.handleClick}>Click me</button>
             </div>
           );
         }
