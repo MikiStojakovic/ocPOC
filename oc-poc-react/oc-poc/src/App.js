@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import OcComponent from './OcComponent';
+import AddOc from './AddOc';
 
 class App extends Component {
   state = {
@@ -16,6 +17,7 @@ class App extends Component {
         <h1>My first React app!</h1>
         <p>Welcome ;)</p>
         <OcComponent ocs={this.state.ocs} />
+        <AddOc />
       </div>
     );
   }
