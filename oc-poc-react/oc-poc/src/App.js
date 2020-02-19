@@ -1,14 +1,24 @@
 import React, { Component } from 'react';
-import Component2 from './Component2';
+import OcComponent from './ocComponent';
 
-function App() {
-  return (
-    <div className="App">
-      <h1>My first React app!</h1>
-      <p>Welcome ;)</p>
-      <Component2 name="oc1" id="1" ocRef="ref1" />
-    </div>
-  );
+class App extends Component {
+  state = {
+    ocs: [
+      { id: 1, ocRef: 'ref 1', name: 'oc 1' },
+      { id: 2, ocRef: 'ref 2', name: 'oc 2' },
+      { id: 3, ocRef: 'ref 3', name: 'oc 3' }
+    ]
+  };
+
+  render() {
+    return (
+      <div className="App">
+        <h1>My first React app!</h1>
+        <p>Welcome ;)</p>
+        <OcComponent ocs={this.state.ocs} />
+      </div>
+    );
+  }
 }
 
 export default App;
