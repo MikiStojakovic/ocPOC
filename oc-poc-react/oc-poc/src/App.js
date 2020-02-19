@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import OcComponent from './ocComponent';
+import OcComponent from './OcComponent';
 
 class App extends Component {
   state = {

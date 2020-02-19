@@ -1,19 +1,16 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-class OcComponent extends Component {
-  render() {
-    const ocs = this.props.ocs;
-    const ocList = ocs.map(oc => {
-      return (
-        <div className="" key={oc.id}>
-          <div>oc id: {oc.id}</div>
-          <div>oc ref: {oc.ocRef}</div>
-          <div>oc name: {oc.name}</div>
-        </div>
-      );
-    });
-    return <div className="oc-list">{ocList}</div>;
-  }
-}
+const OcComponent = ({ ocs }) => {
+  const ocList = ocs.map(oc => {
+    return (
+      <div className="" key={oc.id}>
+        <div>oc id: {oc.id}</div>
+        <div>oc ref: {oc.ocRef}</div>
+        <div>oc name: {oc.name}</div>
+      </div>
+    );
+  });
+  return <div className="oc-list">{ocList}</div>;
+};
 
 export default OcComponent;
