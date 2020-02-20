@@ -15,7 +15,7 @@ class AddOc extends Component {
 
   handleSubmit = e => {
     e.preventDefault();
-    console.log(this.state);
+    this.props.addOc(this.state);
   };
 
   render() {

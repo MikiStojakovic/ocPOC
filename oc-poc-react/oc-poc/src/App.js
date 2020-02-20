@@ -11,13 +11,20 @@ class App extends Component {
     ]
   };
 
+  addOc = oc => {
+    let ocs = [...this.state.ocs, oc];
+    this.setState({
+      ocs: ocs
+    });
+  };
+
   render() {
     return (
       <div className="App">
         <h1>My first React app!</h1>
         <p>Welcome ;)</p>
         <OcComponent ocs={this.state.ocs} />
-        <AddOc />
+        <AddOc addOc={this.addOc} />
       </div>
     );
   }
