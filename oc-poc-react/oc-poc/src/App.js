@@ -18,12 +18,19 @@ class App extends Component {
     });
   };
 
+  deleteOc = id => {
+    let ocs = this.state.ocs.filter(oc => oc.id !== id);
+    this.setState({
+      ocs: ocs
+    });
+  };
+
   render() {
     return (
       <div className="App">
         <h1>My first React app!</h1>
         <p>Welcome ;)</p>
-        <OcComponent ocs={this.state.ocs} />
+        <OcComponent deleteOc={this.deleteOc} ocs={this.state.ocs} />
         <AddOc addOc={this.addOc} />
       </div>
     );

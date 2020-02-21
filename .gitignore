@@ -54,3 +54,26 @@ msbuild.wrn
 /oc-poc-react/oc-poc/npm-debug.log*
 /oc-poc-react/oc-poc/yarn-debug.log*
 /oc-poc-react/oc-poc/yarn-error.log*
+
+
+# dependencies
+/oc-poc-react/oc-poc-copartis/node_modules
+/oc-poc-react/oc-poc-copartis/.pnp
+/oc-poc-react/oc-poc-copartis/.pnp.js
+
+# testing
+/oc-poc-react/oc-poc-copartis//coverage
+
+# production
+/oc-poc-react/oc-poc-copartis/build
+
+# misc
+/oc-poc-react/oc-poc-copartis-copartis/.DS_Store
+/oc-poc-react/oc-poc-copartis-copartis/.env.local
+/oc-poc-react/oc-poc-copartis-copartis/.env.development.local
+/oc-poc-react/oc-poc-copartis-copartis/.env.test.local
+/oc-poc-react/oc-poc-copartis-copartis/.env.production.local
+
+/oc-poc-react/oc-poc-copartis/npm-debug.log*
+/oc-poc-react/oc-poc-copartis/yarn-debug.log*
+/oc-poc-react/oc-poc-copartis/yarn-error.log*
