@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import Ocs from './Ocs';
-import AddOcForm from './AddOcForm';
+import Ocs from './components/OcsList';
+import AddOcForm from './components/AddOcForm';
+import Navbar from './components/Navbar';
 
 class App extends Component {
   state = {
@@ -27,6 +28,7 @@ class App extends Component {
   render() {
     return (
       <div className="oc-app container">
+        <Navbar />
         <h1 className="center blue-text">Ouverture compte</h1>
         <Ocs ocs={this.state.ocs} deleteOc={this.deleteOc} />
         <AddOcForm addOc={this.addOc} />
