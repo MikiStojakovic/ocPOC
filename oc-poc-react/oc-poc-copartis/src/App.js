@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
-import Ocs from './components/OcsList';
+import Home from './components/Home';
+import OcsList from './components/OcsList';
 import AddOcForm from './components/AddOcForm';
 import Navbar from './components/Navbar';
+import { BrowserRouter, Route } from 'react-router-dom';
 
 class App extends Component {
   state = {
@@ -27,12 +29,17 @@ class App extends Component {
 
   render() {
     return (
-      <div className="oc-app container">
-        <Navbar />
-        <h1 className="center blue-text">Ouverture compte</h1>
-        <Ocs ocs={this.state.ocs} deleteOc={this.deleteOc} />
-        <AddOcForm addOc={this.addOc} />
-      </div>
+      <BrowserRouter>
+        <div className="oc-app container">
+          <Navbar />
+          <Route exact path="/" component={Home} />
+          <Route path="/ocList" component={OcsList} />
+          <Route path="/addOc" component={AddOcForm} />
+          {/* <h1 className="center blue-text">Ouverture compte</h1>
+          <OcsList ocs={this.state.ocs} deleteOc={this.deleteOc} />
+          <AddOcForm addOc={this.addOc} /> */}
+        </div>
+      </BrowserRouter>
     );
   }
 }
