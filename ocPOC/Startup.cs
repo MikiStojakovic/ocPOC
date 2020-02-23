@@ -16,6 +16,7 @@ namespace ocPOC
     public class Startup
     {
         public IConfiguration Configuration { get; }
+        readonly string MyAllowSpecificOrigins = "EnableCORS";
 
         public Startup(IConfiguration configuration)
         {
@@ -24,8 +25,16 @@ namespace ocPOC
         // This method gets called by the runtime. Use this method to add services to the container.
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
-        {
+        {            
             services.AddControllers();
+            //Enable cors
+            services.AddCors(options =>
+            {
+                options.AddPolicy(MyAllowSpecificOrigins,
+                    builder => {
+                        builder.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod();
+                    });
+            });
             services.AddDbContextPool<ocDbContext>(
                 options => options.UseSqlServer(Configuration.GetConnectionString("odcDbConnection")));            
             services.AddScoped<IOdcRepository, OdcRepository>();
@@ -39,6 +48,7 @@ namespace ocPOC
                 app.UseDeveloperExceptionPage();
             }
 
+            app.UseCors(MyAllowSpecificOrigins);
             app.UseRouting();
             app.UseAuthentication();
 
