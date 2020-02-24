@@ -28,5 +28,14 @@ namespace ocPOC.Controllers
 
             return rr;
         }
+
+        [HttpGet]
+        [Route("getOcById")]
+        public OuvertureCompte Get(int id)
+        {
+            var result = OdcRepository.GetOc(id);
+
+            return result;
+        }
     }
 }
