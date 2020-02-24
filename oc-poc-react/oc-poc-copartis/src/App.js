@@ -3,7 +3,7 @@ import Home from './components/Home';
 import OcsList from './components/OcsList';
 import AddOcForm from './components/AddOcForm';
 import Navbar from './components/Navbar';
-import { BrowserRouter, Route } from 'react-router-dom';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Oc from './components/Oc';
 
 class App extends Component {
@@ -33,10 +33,12 @@ class App extends Component {
       <BrowserRouter>
         <div className="oc-app container">
           <Navbar />
-          <Route exact path="/" component={Home} />
-          <Route path="/ocList" component={OcsList} />
-          <Route path="/addOc" component={AddOcForm} />
-          <Route path="/:id" component={Oc} />
+          <Switch>
+            <Route exact path="/" component={Home} />
+            <Route path="/ocList" component={OcsList} />
+            <Route path="/addOc" component={AddOcForm} />
+            <Route path="/:id" component={Oc} />
+          </Switch>
           {/* <h1 className="center blue-text">Ouverture compte</h1>
           <OcsList ocs={this.state.ocs} deleteOc={this.deleteOc} />
           <AddOcForm addOc={this.addOc} /> */}
