@@ -19,23 +19,43 @@ namespace ocPOC.Controllers
         public IOdcRepository OdcRepository { get; }
 
         [HttpGet]
-        public IEnumerable<OuvertureCompte> GetAll() 
+        public IActionResult Get()
         {
             var result = OdcRepository.GetAllOc();
 
             var rr = result.ToList();
             rr.Add(new OuvertureCompte() { Id = 4, OcRef = "Ref4", PropertyOne = "prop4" });
 
-            return rr;
+            return Ok(rr);
         }
 
-        [HttpGet]
-        [Route("getOcById")]
-        public OuvertureCompte Get(int id)
+
+        [HttpGet("{id}")]
+        public IActionResult Get(int id)
         {
             var result = OdcRepository.GetOc(id);
 
-            return result;
+            return Ok(result);
         }
+
+        //[HttpGet]
+        //public IEnumerable<OuvertureCompte> Get() 
+        //{
+        //    var result = OdcRepository.GetAllOc();
+
+        //    var rr = result.ToList();
+        //    rr.Add(new OuvertureCompte() { Id = 4, OcRef = "Ref4", PropertyOne = "prop4" });
+
+        //    return rr;
+        //}
+
+        //[HttpGet]
+
+        //public OuvertureCompte Get(int id)
+        //{
+        //    var result = OdcRepository.GetOc(id);
+
+        //    return result;
+        //}
     }
 }
