@@ -6,22 +6,18 @@ class Oc extends Component {
     oc: null
   };
   componentDidMount() {
+    console.log('start componentDidMount');
     let id = this.props.match.params.id;
     let api = 'http://localhost:54188/api/oc/' + id;
     axios.get(api).then(response => {
       this.setState({ oc: response.data });
-      console.log(response);
-      console.log(this.state.oc);
-      console.log(this.state.oc.ocRef);
     });
   }
   render() {
-    console.log(!!this.setState.oc);
-    const oc = this.setState.oc ? (
+    const oc = this.state.oc ? (
       <div className="post">
-        baba
-        <h4 className="center">{this.state.oc.ocRef}</h4>
-        <p>{this.state.oc.ocRef}</p>
+        <h4 className="center">Oc reference: {this.state.oc.ocRef}</h4>
+        <p>Description: {this.state.oc.ocRef}</p>
       </div>
     ) : (
       <div className="center">Loading post...</div>
