@@ -6,10 +6,10 @@ body {
 
 .home .post img {
   position: absolute;
-  top: 10px;
-  left: -10px;
+  top: 1rem;
+  left: 0px;
   opacity: 0.6;
-  width: 3rem;
+  width: 2rem;
 }
 
 .home .post {
