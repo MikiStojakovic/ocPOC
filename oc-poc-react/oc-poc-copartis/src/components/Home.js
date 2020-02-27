@@ -18,6 +18,7 @@ class Home extends Component {
   // }
   render() {
     const { ocs } = this.props;
+    console.log(ocs);
     const ocsList = ocs.length ? (
       ocs.map(oc => {
         console.log(oc);

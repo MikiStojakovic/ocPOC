@@ -3,6 +3,10 @@ import axios from 'axios';
 import { connect } from 'react-redux';
 
 class Oc extends Component {
+  handleClick = () => {
+    this.props.deleteOc(this.props.oc.id);
+    this.props.history.push('/');
+  };
   // state = {
   //   oc: null
   // };
@@ -15,10 +19,17 @@ class Oc extends Component {
   //   });
   // }
   render() {
+    console.log('opened oc');
+    console.log(this.props);
     const oc = this.props ? (
       <div className="post">
         <h4 className="center">Oc reference: {this.props.oc.ocRef}</h4>
         <p>Description: {this.props.oc.ocRef}</p>
+        <div className="center">
+          <div className="btn gray" onClick={this.handleClick}>
+            Delete OC
+          </div>
+        </div>
       </div>
     ) : (
       <div className="center">Loading post...</div>
@@ -28,11 +39,18 @@ class Oc extends Component {
 }
 
 const mapStateToProps = (state, ownProps) => {
-  console.log(ownProps);
   let id = ownProps.match.params.id;
   return {
-    oc: state.ocs.find(oc => (oc.id = id))
+    oc: state.ocs.find(oc => oc.id == id)
   };
 };
 
-export default connect(mapStateToProps)(Oc);
+const mapDispatchToProps = dispatch => {
+  return {
+    deleteOc: id => {
+      dispatch({ type: 'DELETE_OC', id: id });
+    }
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Oc);
