@@ -2,24 +2,22 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import Pokeball from '../pokeball.png';
+import { connect } from 'react-redux';
 
 class Home extends Component {
-  state = {
-    ocs: []
-  };
-  componentDidMount() {
-    axios.get('http://localhost:54188/api/oc').then(response => {
-      console.log(response.data);
-      this.setState({
-        ocs: response.data
-      });
-    });
-  }
+  // state = {
+  //   ocs: []
+  // };
+  // componentDidMount() {
+  //   axios.get('http://localhost:54188/api/oc').then(response => {
+  //     console.log(response.data);
+  //     this.setState({
+  //       ocs: response.data
+  //     });
+  //   });
+  // }
   render() {
-    const { ocs } = this.state;
-    console.log(this.state);
-    console.log('ocs');
-    console.log(ocs);
+    const { ocs } = this.props;
     const ocsList = ocs.length ? (
       ocs.map(oc => {
         console.log(oc);
@@ -47,4 +45,10 @@ class Home extends Component {
   }
 }
 
-export default Home;
+const mapStateToProps = state => {
+  return {
+    ocs: state.ocs
+  };
+};
+
+export default connect(mapStateToProps)(Home);
