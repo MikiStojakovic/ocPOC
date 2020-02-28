@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { connect } from 'react-redux';
+import { deleteOc } from '../actions/ocActions';
 
 class Oc extends Component {
   handleClick = () => {
@@ -48,7 +49,7 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = dispatch => {
   return {
     deleteOc: id => {
-      dispatch({ type: 'DELETE_OC', id: id });
+      dispatch(deleteOc(id));
     }
   };
 };
