@@ -1,24 +1,25 @@
 import React, { Component } from 'react';
-import axios from 'axios';
 import { Link } from 'react-router-dom';
 import Pokeball from '../pokeball.png';
 import { connect } from 'react-redux';
+import { loadOcs } from '../actions/ocActions';
 
 class Home extends Component {
+  loadOcs = () => {
+    let result;
+    this.props.loadOcs().then(res => (result = res.data));
+    return result;
+    // this.props.deleteOc(this.props.oc.id);
+    // this.props.history.push('/');
+  };
   // state = {
   //   ocs: []
   // };
-  // componentDidMount() {
-  //   axios.get('http://localhost:54188/api/oc').then(response => {
-  //     console.log(response.data);
-  //     this.setState({
-  //       ocs: response.data
-  //     });
-  //   });
-  // }
+  componentDidMount() {
+    console.log(this.loadOcs());
+  }
   render() {
     const { ocs } = this.props;
-    console.log(ocs);
     const ocsList = ocs.length ? (
       ocs.map(oc => {
         console.log(oc);
@@ -52,4 +53,12 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps)(Home);
+const mapDispatchToProps = dispatch => {
+  return {
+    loadOcs: () => {
+      dispatch(loadOcs());
+    }
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Home);

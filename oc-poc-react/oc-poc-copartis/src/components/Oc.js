@@ -20,8 +20,6 @@ class Oc extends Component {
   //   });
   // }
   render() {
-    console.log('opened oc');
-    console.log(this.props);
     const oc = this.props ? (
       <div className="post">
         <h4 className="center">Oc reference: {this.props.oc.ocRef}</h4>
