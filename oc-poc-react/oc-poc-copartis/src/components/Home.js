@@ -6,8 +6,7 @@ import { loadOcs } from '../actions/ocActions';
 
 class Home extends Component {
   loadOcs = () => {
-    let result;
-    this.props.loadOcs().then(res => (result = res.data));
+    let result = this.props.loadOcs();
     return result;
     // this.props.deleteOc(this.props.oc.id);
     // this.props.history.push('/');

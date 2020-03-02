@@ -1,10 +1,7 @@
 import axios from 'axios';
 
 const initState = {
-  ocs: [
-    { id: 1, ocRef: 'ocRef 1' },
-    { id: 2, ocRef: 'ocRef 2' }
-  ]
+  ocs: []
 };
 
 // const getOcs = () => {
@@ -25,12 +22,12 @@ const rootReducer = (state = initState, action) => {
     };
   }
   if (action.type === 'GET_ALL_OCS') {
-    let ocs = action.execute();
+    let ocs = action.ocs;
     console.log('get all ocs');
     console.log(ocs);
     return {
       ...state,
-      ocs: []
+      ocs: ocs
     };
   }
   return state;
