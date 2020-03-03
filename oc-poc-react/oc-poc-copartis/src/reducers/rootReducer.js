@@ -12,6 +12,14 @@ const initState = {
 // getOcs();
 
 const rootReducer = (state = initState, action) => {
+  if (action.type === 'CREATE_OC') {
+    console.log('CREATE_OC');
+    console.log(action.oc);
+    // return {
+    //   ...state,
+    //   ocs: []]
+    // };
+  }
   if (action.type === 'DELETE_OC') {
     let newOcs = state.ocs.filter(oc => {
       return action.id !== oc.id;

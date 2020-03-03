@@ -1,43 +1,69 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { createOc } from '../actions/ocActions';
 
 class AddOcForm extends Component {
   state = {
-    oc: { id: '', name: '', ref: '', fournissier: '' }
+    oc: { Id: '', OcRef: '', PropertyOne: '' }
   };
 
   handleChange = e => {
     this.setState({
       oc: {
-        id: '4',
-        name: e.target.value,
-        ref: 'ref-4',
-        fournissier: 'copartis'
+        Id: document.getElementById('Id').value,
+        OcRef: document.getElementById('OcRef').value,
+        PropertyOne: document.getElementById('PropertyOne').value
       }
     });
   };
 
   handleSubmit = e => {
     e.preventDefault();
-    this.props.addOc(this.state.oc);
+    this.props.createOc(this.state);
     this.setState({
-      oc: { id: '', name: '', ref: '', fournissier: '' }
+      oc: { Id: '', OcRef: '', PropertyOne: '' }
     });
   };
 
   render() {
     return (
-      <div>
-        <form onSubmit={this.handleSubmit}>
-          <label>Add new oc</label>
-          <input
-            type="text"
-            onChange={this.handleChange}
-            value={this.state.oc.name}
-          ></input>
+      <div className="container">
+        <form onSubmit={this.handleSubmit} className="white">
+          <h5 className="grey-text text-darken-3">Create new project</h5>
+          <div className="input-field">
+            <label htmlFor="Id">Id</label>
+            <br />
+            <input type="text" id="Id" onChange={this.handleChange} />
+          </div>
+          <div className="input-field">
+            <label htmlFor="OcRef">Oc Ref</label>
+            <br />
+            <input type="text" id="OcRef" onChange={this.handleChange} />
+          </div>
+          <div className="input-field">
+            <label htmlFor="PropertyOne">Property One</label>
+            <br />
+            <input type="text" id="PropertyOne" onChange={this.handleChange} />
+            <button onClick={this.handleSubmit}>Submit</button>
+          </div>
         </form>
       </div>
     );
   }
 }
 
-export default AddOcForm;
+// const mapStateToProps = state => {
+//   return {
+//     ocs: state.ocs
+//   };
+// };
+
+const mapDispatchToProps = dispatch => {
+  return {
+    createOc: oc => {
+      dispatch(createOc(oc));
+    }
+  };
+};
+
+export default connect(null, mapDispatchToProps)(AddOcForm);

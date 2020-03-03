@@ -38,6 +38,14 @@ namespace ocPOC.Controllers
             return Ok(result);
         }
 
+        [HttpPost]
+        public IActionResult Post([FromBody]OuvertureCompte oc)
+        {
+            var result = OdcRepository.Add(oc);
+
+            return Ok(result);
+        }
+
         //[HttpGet]
         //public IEnumerable<OuvertureCompte> Get() 
         //{

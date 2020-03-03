@@ -8,15 +8,7 @@ class Home extends Component {
   loadOcs = () => {
     let result = this.props.loadOcs();
     return result;
-    // this.props.deleteOc(this.props.oc.id);
-    // this.props.history.push('/');
   };
-  // state = {
-  //   ocs: []
-  // };
-  componentDidMount() {
-    console.log(this.loadOcs());
-  }
   render() {
     const { ocs } = this.props;
     const ocsList = ocs.length ? (
