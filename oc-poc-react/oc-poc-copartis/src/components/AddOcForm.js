@@ -19,10 +19,12 @@ class AddOcForm extends Component {
 
   handleSubmit = e => {
     e.preventDefault();
-    this.props.createOc(this.state);
-    this.setState({
-      oc: { Id: '', OcRef: '', PropertyOne: '' }
-    });
+    let oc = {
+      Id: +this.state.oc.Id,
+      OcRef: this.state.oc.OcRef,
+      PropertyOne: this.state.oc.PropertyOne
+    };
+    this.props.createOc(oc);
   };
 
   render() {

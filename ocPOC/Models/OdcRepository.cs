@@ -16,6 +16,7 @@ namespace ocPOC.Models
 
         public OuvertureCompte Add(OuvertureCompte ouvertureCompte)
         {
+            ouvertureCompte.Id = 0;
             Context.OuvertureComptes.Add(ouvertureCompte);
             Context.SaveChanges();
             return ouvertureCompte;
