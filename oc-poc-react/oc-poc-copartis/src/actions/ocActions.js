@@ -13,13 +13,16 @@ export const createOc = oc => {
 };
 
 export const loadOcs = () => {
-  return dispatch => {
-    return axios.get('http://localhost:54188/api/oc').then(respone => {
-      dispatch({
-        type: 'GET_ALL_OCS',
-        ocs: respone.data
-      });
-    });
+  return (dispatch, getState) => {
+    axios
+      .get('http://localhost:54188/api/oc')
+      .then(response => {
+        dispatch({
+          type: 'GET_ALL_OCS',
+          ocs: response.data
+        });
+      })
+      .catch(er => console.log(er));
   };
 };
 

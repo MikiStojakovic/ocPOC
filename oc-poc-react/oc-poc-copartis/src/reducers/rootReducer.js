@@ -30,12 +30,12 @@ const rootReducer = (state = initState, action) => {
     };
   }
   if (action.type === 'GET_ALL_OCS') {
-    let ocs = action.ocs;
-    console.log('get all ocs');
-    console.log(ocs);
+    // let ocs = action.ocs;
+    // console.log('get all ocs');
+    // console.log(ocs);
     return {
       ...state,
-      ocs: ocs
+      ocs: action.ocs
     };
   }
   return state;

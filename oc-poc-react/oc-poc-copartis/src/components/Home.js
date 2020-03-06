@@ -5,15 +5,14 @@ import { connect } from 'react-redux';
 import { loadOcs } from '../actions/ocActions';
 
 class Home extends Component {
-  loadOcs = () => {
-    let result = this.props.loadOcs();
-    return result;
-  };
+  componentDidMount() {
+    this.props.loadOcs();
+  }
+
   render() {
-    const { ocs } = this.props;
+    const ocs = this.props.ocs;
     const ocsList = ocs.length ? (
       ocs.map(oc => {
-        console.log(oc);
         return (
           <div className="post card" key={oc.id}>
             <img src={Pokeball} alt="oc" />

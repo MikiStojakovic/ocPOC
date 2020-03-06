@@ -54,12 +54,6 @@ class AddOcForm extends Component {
   }
 }
 
-// const mapStateToProps = state => {
-//   return {
-//     ocs: state.ocs
-//   };
-// };
-
 const mapDispatchToProps = dispatch => {
   return {
     createOc: oc => {
