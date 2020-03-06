@@ -26,6 +26,20 @@ export const loadOcs = () => {
   };
 };
 
+export const getOcById = id => {
+  return (dispatch, getState) => {
+    axios
+      .get('http://localhost:54188/api/oc/' + id)
+      .then(response => {
+        dispatch({
+          type: 'GET_OC_BY_ID',
+          oc: response.data
+        });
+      })
+      .catch(er => console.log(er));
+  };
+};
+
 export const deleteOc = id => {
   return {
     type: 'DELETE_OC',

@@ -20,6 +20,12 @@ const rootReducer = (state = initState, action) => {
     //   ocs: []]
     // };
   }
+  if (action.type === 'GET_OC_BY_ID') {
+    return {
+      ...state,
+      oc: action.oc
+    };
+  }
   if (action.type === 'DELETE_OC') {
     let newOcs = state.ocs.filter(oc => {
       return action.id !== oc.id;
@@ -30,9 +36,6 @@ const rootReducer = (state = initState, action) => {
     };
   }
   if (action.type === 'GET_ALL_OCS') {
-    // let ocs = action.ocs;
-    // console.log('get all ocs');
-    // console.log(ocs);
     return {
       ...state,
       ocs: action.ocs

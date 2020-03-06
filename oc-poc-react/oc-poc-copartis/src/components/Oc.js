@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { connect } from 'react-redux';
-import { deleteOc } from '../actions/ocActions';
+import { deleteOc, getOcById } from '../actions/ocActions';
 
 class Oc extends Component {
   handleClick = () => {
@@ -11,19 +11,17 @@ class Oc extends Component {
   // state = {
   //   oc: null
   // };
-  // componentDidMount() {
-  //   console.log('start componentDidMount');
-  //   let id = this.props.match.params.id;
-  //   let api = 'http://localhost:54188/api/oc/' + id;
-  //   axios.get(api).then(response => {
-  //     this.setState({ oc: response.data });
-  //   });
-  // }
+  componentDidMount(ownProps) {
+    let id = 1;
+    console.log('start componentDidMount');
+    this.props.getOcById(id);
+  }
   render() {
-    const oc = this.props ? (
+    const oc = this.props.oc ? (
       <div className="post">
         <h4 className="center">Oc reference: {this.props.oc.ocRef}</h4>
-        <p>Description: {this.props.oc.ocRef}</p>
+        <p>Oc Reference: {this.props.oc.ocRef}</p>
+        <p>Property: {this.props.oc.propertyOne}</p>
         <div className="center">
           <div className="btn gray" onClick={this.handleClick}>
             Delete OC
@@ -38,14 +36,16 @@ class Oc extends Component {
 }
 
 const mapStateToProps = (state, ownProps) => {
-  let id = ownProps.match.params.id;
   return {
-    oc: state.ocs.find(oc => oc.id == id)
+    oc: state.oc
   };
 };
 
 const mapDispatchToProps = dispatch => {
   return {
+    getOcById: id => {
+      dispatch(getOcById(id));
+    },
     deleteOc: id => {
       dispatch(deleteOc(id));
     }
