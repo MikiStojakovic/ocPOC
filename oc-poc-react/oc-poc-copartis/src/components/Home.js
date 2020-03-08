@@ -20,6 +20,7 @@ class Home extends Component {
               <Link to={'/' + oc.id}>
                 <span className="card-title red-text">{oc.ocRef}</span>
               </Link>
+
               <p>{oc.propertyOne}</p>
             </div>
           </div>

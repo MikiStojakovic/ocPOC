@@ -24,7 +24,6 @@ namespace ocPOC.Controllers
             var result = OdcRepository.GetAllOc();
 
             var rr = result.ToList();
-            rr.Add(new OuvertureCompte() { Id = 4, OcRef = "Ref4", PropertyOne = "prop4" });
 
             return Ok(rr);
         }
@@ -46,16 +45,14 @@ namespace ocPOC.Controllers
             return Ok(result);
         }
 
-        //[HttpGet]
-        //public IEnumerable<OuvertureCompte> Get() 
-        //{
-        //    var result = OdcRepository.GetAllOc();
+        [HttpDelete]
+        //[HttpGet("{id}")]
+        public IActionResult Delete(int id)
+        {
+            var result = OdcRepository.Delete(id);
 
-        //    var rr = result.ToList();
-        //    rr.Add(new OuvertureCompte() { Id = 4, OcRef = "Ref4", PropertyOne = "prop4" });
-
-        //    return rr;
-        //}
+            return Ok(result);
+        }
 
         //[HttpGet]
 

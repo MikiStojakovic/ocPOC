@@ -34,6 +34,11 @@ const rootReducer = (state = initState, action) => {
       ocs: action.ocs
     };
   }
+  if (action.type === 'DELETE_OC') {
+    return {
+      ...state
+    };
+  }
   return state;
 };
 

@@ -26,6 +26,19 @@ export const loadOcs = () => {
   };
 };
 
+export const deleteOc = id => {
+  return (dispatch, getState) => {
+    axios
+      .delete('http://localhost:54188/api/oc/', { params: { id: id } })
+      .then(response => {
+        dispatch({
+          type: 'DELETE_OC',
+          oc: response.data
+        });
+      });
+  };
+};
+
 export const getOcById = id => {
   return (dispatch, getState) => {
     axios
@@ -37,12 +50,5 @@ export const getOcById = id => {
         });
       })
       .catch(er => console.log(er));
-  };
-};
-
-export const deleteOc = id => {
-  return {
-    type: 'DELETE_OC',
-    id
   };
 };
