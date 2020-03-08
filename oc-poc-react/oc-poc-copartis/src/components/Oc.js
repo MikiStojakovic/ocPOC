@@ -5,14 +5,11 @@ import { deleteOc, getOcById } from '../actions/ocActions';
 
 class Oc extends Component {
   handleClick = () => {
-    this.props.deleteOc(this.props.oc.id);
+    this.props.deleteOc(this.props.match.params.id);
     this.props.history.push('/');
   };
-  // state = {
-  //   oc: null
-  // };
   componentDidMount(ownProps) {
-    let id = 1;
+    let id = this.props.match.params.id;
     console.log('start componentDidMount');
     this.props.getOcById(id);
   }

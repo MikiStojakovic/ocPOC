@@ -4,13 +4,6 @@ const initState = {
   ocs: []
 };
 
-// const getOcs = () => {
-//   axios.get('http://localhost:54188/api/oc').then(response => {
-//     console.log(response.data);
-//   });
-// };
-// getOcs();
-
 const rootReducer = (state = initState, action) => {
   if (action.type === 'CREATE_OC') {
     console.log('CREATE_OC');
