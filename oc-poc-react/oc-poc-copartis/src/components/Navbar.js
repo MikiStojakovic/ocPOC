@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import { Link, NavLink, Switch, Route } from 'react-router-dom';
 
 const Navbar = () => {
   return (
@@ -9,15 +9,22 @@ const Navbar = () => {
           OC Copartis
         </a>
         <ul className="right">
-          <li>
+          {/* <li>
             <Link to="/">Home</Link>
           </li>
           <li>
             <NavLink to="/ocList">OC list</NavLink>
           </li>
           <li>
-            <NavLink to="addOc">Add new oc</NavLink>
-          </li>
+            <NavLink to="addOc/:id?">Add new oc</NavLink>
+          </li> */}
+          <Switch>
+            <Route path="/" exact>
+              Home
+            </Route>
+            <Route path="/ocList">OC list</Route>
+            <Route path="/addOc/:id">Add new oc</Route>
+          </Switch>
         </ul>
       </div>
     </nav>

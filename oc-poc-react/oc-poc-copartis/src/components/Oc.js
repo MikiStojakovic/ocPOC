@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import axios from 'axios';
+import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { deleteOc, getOcById } from '../actions/ocActions';
 
 class Oc extends Component {
-  handleClick = () => {
+  handleDelete = () => {
     this.props.deleteOc(this.props.match.params.id);
     this.props.history.push('/');
   };
@@ -20,9 +20,12 @@ class Oc extends Component {
         <p>Oc Reference: {this.props.oc.ocRef}</p>
         <p>Property: {this.props.oc.propertyOne}</p>
         <div className="center">
-          <div className="btn gray" onClick={this.handleClick}>
+          <div className="btn gray" onClick={this.handleDelete}>
             Delete OC
           </div>
+          <Link to={'addOc/' + this.props.oc.id}>
+            <div className="btn gray">Edit OC</div>
+          </Link>
         </div>
       </div>
     ) : (

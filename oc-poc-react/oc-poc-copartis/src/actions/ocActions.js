@@ -39,6 +39,21 @@ export const deleteOc = id => {
   };
 };
 
+export const updateOc = oc => {
+  return (dispatch, getState) => {
+    axios({
+      method: 'put',
+      url: 'http://localhost:54188/api/oc',
+      data: oc
+    }).then(response => {
+      dispatch({
+        type: 'UPDATE_OC',
+        oc: response.data
+      });
+    });
+  };
+};
+
 export const getOcById = id => {
   return (dispatch, getState) => {
     axios

@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { createOc } from '../actions/ocActions';
+import { createOc, updateOc } from '../actions/ocActions';
+import { Link, useParams } from 'react-router-dom';
 
 class AddOcForm extends Component {
-  state = {
-    oc: { Id: '', OcRef: '', PropertyOne: '' }
-  };
+  // state = {
+  //   oc: { Id: '', OcRef: '', PropertyOne: '' }
+  // };
 
   handleChange = e => {
     this.setState({
@@ -17,7 +18,7 @@ class AddOcForm extends Component {
     });
   };
 
-  handleSubmit = e => {
+  handleCreate = e => {
     e.preventDefault();
     let oc = {
       Id: +this.state.oc.Id,
@@ -27,11 +28,24 @@ class AddOcForm extends Component {
     this.props.createOc(oc);
   };
 
+  handleUpdate = () => {
+    this.props.updateOc(this.props.oc);
+    this.props.history.push('/');
+  };
+
+  componentDidMount(ownProps) {
+    let id = this.oc.id;
+    console.log(id);
+    // this.props.getOcById(id);
+  }
+
   render() {
     return (
       <div className="container">
         <form onSubmit={this.handleSubmit} className="white">
-          <h5 className="grey-text text-darken-3">Create new project</h5>
+          <h5 className="grey-text text-darken-3">
+            Create/Update Ouverture Compte
+          </h5>
           <div className="input-field">
             <label htmlFor="Id">Id</label>
             <br />
@@ -46,7 +60,14 @@ class AddOcForm extends Component {
             <label htmlFor="PropertyOne">Property One</label>
             <br />
             <input type="text" id="PropertyOne" onChange={this.handleChange} />
-            <button onClick={this.handleSubmit}>Submit</button>
+            <div className="center">
+              <div className="btn gray" onClick={this.handleCreate}>
+                Create OC
+              </div>
+              <div className="btn gray" onClick={this.handleUpdate}>
+                Update OC
+              </div>
+            </div>
           </div>
         </form>
       </div>
@@ -54,12 +75,21 @@ class AddOcForm extends Component {
   }
 }
 
+const mapStateToProps = (state, ownProps) => {
+  return {
+    oc: state.oc
+  };
+};
+
 const mapDispatchToProps = dispatch => {
   return {
     createOc: oc => {
       dispatch(createOc(oc));
+    },
+    updateOc: oc => {
+      dispatch(updateOc(oc));
     }
   };
 };
 
-export default connect(null, mapDispatchToProps)(AddOcForm);
+export default connect(mapStateToProps, mapDispatchToProps)(AddOcForm);
