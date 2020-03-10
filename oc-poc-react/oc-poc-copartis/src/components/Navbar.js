@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link, NavLink, Switch, Route } from 'react-router-dom';
+import AddOcForm from './AddOcForm';
 
 const Navbar = () => {
   return (
@@ -9,7 +10,7 @@ const Navbar = () => {
           OC Copartis
         </a>
         <ul className="right">
-          {/* <li>
+          <li>
             <Link to="/">Home</Link>
           </li>
           <li>
@@ -17,14 +18,7 @@ const Navbar = () => {
           </li>
           <li>
             <NavLink to="addOc/:id?">Add new oc</NavLink>
-          </li> */}
-          <Switch>
-            <Route path="/" exact>
-              Home
-            </Route>
-            <Route path="/ocList">OC list</Route>
-            <Route path="/addOc/:id">Add new oc</Route>
-          </Switch>
+          </li>
         </ul>
       </div>
     </nav>

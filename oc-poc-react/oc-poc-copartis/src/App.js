@@ -36,7 +36,7 @@ class App extends Component {
           <Switch>
             <Route exact path="/" component={Home} />
             <Route path="/ocList" component={OcsList} />
-            <Route path="/addOc" component={AddOcForm} />
+            <Route path="/addOc/:id?" component={AddOcForm} />
             <Route path="/:id" component={Oc} />
           </Switch>
           {/* <h1 className="center blue-text">Ouverture compte</h1>

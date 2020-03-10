@@ -1,13 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { createOc, updateOc } from '../actions/ocActions';
+import { createOc, updateOc, getOcById } from '../actions/ocActions';
 import { Link, useParams } from 'react-router-dom';
 
 class AddOcForm extends Component {
-  // state = {
-  //   oc: { Id: '', OcRef: '', PropertyOne: '' }
-  // };
-
   handleChange = e => {
     this.setState({
       oc: {
@@ -34,9 +30,9 @@ class AddOcForm extends Component {
   };
 
   componentDidMount(ownProps) {
-    let id = this.oc.id;
+    let id = this.props.match.params.id;
     console.log(id);
-    // this.props.getOcById(id);
+    this.props.getOcById(id);
   }
 
   render() {
@@ -88,6 +84,9 @@ const mapDispatchToProps = dispatch => {
     },
     updateOc: oc => {
       dispatch(updateOc(oc));
+    },
+    getOcById: id => {
+      dispatch(getOcById(id));
     }
   };
 };
