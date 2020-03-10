@@ -5,13 +5,15 @@ import { Link, useParams } from 'react-router-dom';
 
 class AddOcForm extends Component {
   handleChange = e => {
-    this.setState({
-      oc: {
-        //Id: document.getElementById('Id').value,
-        ocRef: document.getElementById('OcRef').value,
-        propertyOne: document.getElementById('PropertyOne').value
-      }
-    });
+    // this.setState({
+    //   props.oc: {
+    //     //Id: document.getElementById('Id').value,
+    //     ocRef: document.getElementById('OcRef').value,
+    //     propertyOne: document.getElementById('PropertyOne').value
+    //   }
+    // });
+    this.props.oc.ocRef = document.getElementById('PropertyOne').value;
+    this.props.oc.propertyOne = document.getElementById('PropertyOne').value;
   };
 
   handleCreate = e => {
