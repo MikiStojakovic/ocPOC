@@ -54,13 +54,12 @@ namespace ocPOC.Controllers
             return Ok(result);
         }
 
-        //[HttpGet]
+        [HttpPut]
+        public IActionResult Update([FromBody]OuvertureCompte oc)
+        {
+            var result = OdcRepository.Update(oc);
 
-        //public OuvertureCompte Get(int id)
-        //{
-        //    var result = OdcRepository.GetOc(id);
-
-        //    return result;
-        //}
+            return Ok(result);
+        }
     }
 }

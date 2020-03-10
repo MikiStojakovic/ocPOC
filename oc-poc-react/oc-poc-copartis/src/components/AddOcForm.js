@@ -7,9 +7,9 @@ class AddOcForm extends Component {
   handleChange = e => {
     this.setState({
       oc: {
-        Id: document.getElementById('Id').value,
-        OcRef: document.getElementById('OcRef').value,
-        PropertyOne: document.getElementById('PropertyOne').value
+        //Id: document.getElementById('Id').value,
+        ocRef: document.getElementById('OcRef').value,
+        propertyOne: document.getElementById('PropertyOne').value
       }
     });
   };
@@ -45,17 +45,32 @@ class AddOcForm extends Component {
           <div className="input-field">
             <label htmlFor="Id">Id</label>
             <br />
-            <input type="text" id="Id" onChange={this.handleChange} />
+            <input
+              type="text"
+              id="Id"
+              onChange={this.handleChange}
+              value={this.props.oc ? this.props.oc.id : null}
+            />
           </div>
           <div className="input-field">
             <label htmlFor="OcRef">Oc Ref</label>
             <br />
-            <input type="text" id="OcRef" onChange={this.handleChange} />
+            <input
+              type="text"
+              id="OcRef"
+              onChange={this.handleChange}
+              value={this.props.oc ? this.props.oc.ocRef : null}
+            />
           </div>
           <div className="input-field">
             <label htmlFor="PropertyOne">Property One</label>
             <br />
-            <input type="text" id="PropertyOne" onChange={this.handleChange} />
+            <input
+              type="text"
+              id="PropertyOne"
+              onChange={this.handleChange}
+              value={this.props.oc ? this.props.oc.propertyOne : null}
+            />
             <div className="center">
               <div className="btn gray" onClick={this.handleCreate}>
                 Create OC
