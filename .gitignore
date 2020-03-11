@@ -68,12 +68,34 @@ msbuild.wrn
 /oc-poc-react/oc-poc-copartis/build
 
 # misc
-/oc-poc-react/oc-poc-copartis-copartis/.DS_Store
-/oc-poc-react/oc-poc-copartis-copartis/.env.local
-/oc-poc-react/oc-poc-copartis-copartis/.env.development.local
-/oc-poc-react/oc-poc-copartis-copartis/.env.test.local
-/oc-poc-react/oc-poc-copartis-copartis/.env.production.local
+/oc-poc-react/oc-poc-copartis/.DS_Store
+/oc-poc-react/oc-poc-copartis/.env.local
+/oc-poc-react/oc-poc-copartis/.env.development.local
+/oc-poc-react/oc-poc-copartis/.env.test.local
+/oc-poc-react/oc-poc-copartis/.env.production.local
 
 /oc-poc-react/oc-poc-copartis/npm-debug.log*
 /oc-poc-react/oc-poc-copartis/yarn-debug.log*
 /oc-poc-react/oc-poc-copartis/yarn-error.log*
+
+# dependencies
+/oc-poc-react/oc-poc-natixis/node_modules
+/oc-poc-react/oc-poc-natixis/.pnp
+/oc-poc-react/oc-poc-natixis/.pnp.js
+
+# testing
+/oc-poc-react/oc-poc-natixis//coverage
+
+# production
+/oc-poc-react/oc-poc-natixis/build
+
+# misc
+/oc-poc-react/oc-poc-natixis/.DS_Store
+/oc-poc-react/oc-poc-natixis/.env.local
+/oc-poc-react/oc-poc-natixis/.env.development.local
+/oc-poc-react/oc-poc-natixis/.env.test.local
+/oc-poc-react/oc-poc-natixis/.env.production.local
+
+/oc-poc-react/oc-poc-natixis/npm-debug.log*
+/oc-poc-react/oc-poc-natixis/yarn-debug.log*
+/oc-poc-react/oc-poc-natixis/yarn-error.log*

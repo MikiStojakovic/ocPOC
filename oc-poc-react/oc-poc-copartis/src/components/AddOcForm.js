@@ -5,15 +5,8 @@ import { Link, useParams } from 'react-router-dom';
 
 class AddOcForm extends Component {
   handleChange = e => {
-    // this.setState({
-    //   props.oc: {
-    //     //Id: document.getElementById('Id').value,
-    //     ocRef: document.getElementById('OcRef').value,
-    //     propertyOne: document.getElementById('PropertyOne').value
-    //   }
-    // });
-    this.props.oc.ocRef = document.getElementById('PropertyOne').value;
-    this.props.oc.propertyOne = document.getElementById('PropertyOne').value;
+    if (e.target.id === 'PropertyOne')
+      this.props.oc.propertyOne = e.target.value;
   };
 
   handleCreate = e => {
@@ -27,7 +20,19 @@ class AddOcForm extends Component {
   };
 
   handleUpdate = () => {
-    this.props.updateOc(this.props.oc);
+    let oc = {
+      id: this.props.oc.id,
+      ocRef:
+        this.props.oc.ocRef === document.getElementById('OcRef').value
+          ? this.props.oc.ocRef
+          : document.getElementById('OcRef').value,
+      propertyOne:
+        this.props.oc.propertyOne ===
+        document.getElementById('PropertyOne').value
+          ? this.props.oc.propertyOne
+          : document.getElementById('PropertyOne').value
+    };
+    this.props.updateOc(oc);
     this.props.history.push('/');
   };
 
@@ -51,7 +56,7 @@ class AddOcForm extends Component {
               type="text"
               id="Id"
               onChange={this.handleChange}
-              value={this.props.oc ? this.props.oc.id : null}
+              value={this.props.oc ? this.props.oc.id : ''}
             />
           </div>
           <div className="input-field">
@@ -61,7 +66,7 @@ class AddOcForm extends Component {
               type="text"
               id="OcRef"
               onChange={this.handleChange}
-              value={this.props.oc ? this.props.oc.ocRef : null}
+              value={this.props.oc ? this.props.oc.ocRef : ''}
             />
           </div>
           <div className="input-field">
@@ -71,7 +76,7 @@ class AddOcForm extends Component {
               type="text"
               id="PropertyOne"
               onChange={this.handleChange}
-              value={this.props.oc ? this.props.oc.propertyOne : null}
+              value={this.props.oc ? this.props.oc.propertyOne : ''}
             />
             <div className="center">
               <div className="btn gray" onClick={this.handleCreate}>
