@@ -5,6 +5,7 @@ import Navbar from './components/layout/Navbar';
 import Dashboard from './components/dashboard/Dashboard';
 import OcDetails from './components/ocs/OcDetails';
 import SignIn from './components/auth/SingIn';
+import SignUp from './components/auth/SignUp';
 
 class App extends Component {
   render() {
@@ -16,6 +17,7 @@ class App extends Component {
             <Route exact path="/" component={Dashboard} />
             <Route path="/oc/:id" component={OcDetails} />
             <Route path="/signin" component={SignIn} />
+            <Route path="/signup" component={SignUp} />
           </Switch>
         </div>
       </BRouter>
