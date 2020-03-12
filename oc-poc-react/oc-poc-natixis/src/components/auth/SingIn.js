@@ -1,11 +1,21 @@
 import React, { Component } from 'react';
 
 class SingIn extends Component {
-  state = {};
+  state = {
+    email: '',
+    password: ''
+  };
 
-  handleChange = e => {};
+  handleChange = e => {
+    this.setState({
+      [e.target.id]: e.target.value
+    });
+  };
 
-  handleSubmit = e => {};
+  handleSubmit = e => {
+    e.preventDefault();
+    console.log(this.state);
+  };
 
   render() {
     return (
