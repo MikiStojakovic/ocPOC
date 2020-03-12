@@ -4,6 +4,7 @@ import { render } from '@testing-library/react';
 import Navbar from './components/layout/Navbar';
 import Dashboard from './components/dashboard/Dashboard';
 import OcDetails from './components/ocs/OcDetails';
+import SignIn from './components/auth/SingIn';
 
 class App extends Component {
   render() {
@@ -14,6 +15,7 @@ class App extends Component {
           <Switch>
             <Route exact path="/" component={Dashboard} />
             <Route path="/oc/:id" component={OcDetails} />
+            <Route path="/signin" component={SignIn} />
           </Switch>
         </div>
       </BRouter>
