@@ -29,3 +29,5 @@ const OcList = () => {
     </div>
   );
 };
+
+export default OcList;
