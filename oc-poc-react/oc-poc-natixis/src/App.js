@@ -6,6 +6,7 @@ import Dashboard from './components/dashboard/Dashboard';
 import OcDetails from './components/ocs/OcDetails';
 import SignIn from './components/auth/SingIn';
 import SignUp from './components/auth/SignUp';
+import CreateOc from './components/ocs/CreateOc';
 
 class App extends Component {
   render() {
@@ -18,6 +19,7 @@ class App extends Component {
             <Route path="/oc/:id" component={OcDetails} />
             <Route path="/signin" component={SignIn} />
             <Route path="/signup" component={SignUp} />
+            <Route path="/createOc" component={CreateOc} />
           </Switch>
         </div>
       </BRouter>
