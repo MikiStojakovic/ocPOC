@@ -1,13 +1,13 @@
 import React from 'react';
 import OcSummary from './OcSummary';
 
-const OcList = () => {
+const OcList = ({ ocs }) => {
   return (
     <div className="oc-list section">
-      <OcSummary />
-      <OcSummary />
-      <OcSummary />
-      <OcSummary />
+      {ocs &&
+        ocs.map(oc => {
+          return <OcSummary oc={oc} key={oc.id} />;
+        })}
     </div>
   );
 };
