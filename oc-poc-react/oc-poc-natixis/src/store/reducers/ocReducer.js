@@ -1,3 +1,5 @@
+import { Switch } from 'react-router-dom';
+
 const initState = {
   ocs: [
     { id: 1, ocRef: 'ref 1', modeSoummision: 'Electronic' },
@@ -7,6 +9,10 @@ const initState = {
 };
 
 const ocReducer = (state = initState, action) => {
+  switch (action.type) {
+    case 'CREATE_OC':
+      console.log('created oc', action.oc);
+  }
   return state;
 };
 

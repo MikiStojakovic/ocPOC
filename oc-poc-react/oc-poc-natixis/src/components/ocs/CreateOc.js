@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { createOc } from '../../store/actions/ocActions';
 
 class CreateOc extends Component {
   state = {
@@ -15,7 +17,7 @@ class CreateOc extends Component {
 
   handleSubmit = e => {
     e.preventDefault();
-    console.log(this.state);
+    this.props.createOc(this.state);
   };
 
   render() {
@@ -48,4 +50,10 @@ class CreateOc extends Component {
   }
 }
 
-export default CreateOc;
+const mapDispatchToProps = dispatch => {
+  return {
+    createOc: oc => dispatch(createOc(oc))
+  };
+};
+
+export default connect(null, mapDispatchToProps)(CreateOc);
