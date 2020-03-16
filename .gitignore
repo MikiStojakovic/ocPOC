@@ -99,3 +99,6 @@ msbuild.wrn
 /oc-poc-react/oc-poc-natixis/npm-debug.log*
 /oc-poc-react/oc-poc-natixis/yarn-debug.log*
 /oc-poc-react/oc-poc-natixis/yarn-error.log*
+
+#config
+/oc-poc-react/oc-poc-natixis/src/config/fbConfig.js
