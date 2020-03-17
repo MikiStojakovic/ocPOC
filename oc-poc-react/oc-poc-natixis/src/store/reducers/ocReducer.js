@@ -12,8 +12,13 @@ const ocReducer = (state = initState, action) => {
   switch (action.type) {
     case 'CREATE_OC':
       console.log('created oc', action.oc);
+      return state;
+    case 'CREATE_OC_ERROR':
+      console.log('create oc error', action.er);
+      return state;
+    default:
+      return state;
   }
-  return state;
 };
 
 export default ocReducer;

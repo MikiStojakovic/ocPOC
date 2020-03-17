@@ -27,7 +27,7 @@ class CreateOc extends Component {
           <h5 className="grey-text text-darken-3">Create Ouverture Compte</h5>
           <div className="input-field">
             <label htmlFor="id">Id</label>
-            <input type="text" id="Id" onChange={this.handleChange} />
+            <input type="text" id="id" onChange={this.handleChange} />
           </div>
           <div className="input-field">
             <label htmlFor="ocRef">OC Reference</label>
