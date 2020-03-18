@@ -2,6 +2,8 @@ import React, { Components, Component } from 'react';
 import Notifications from './Notifications';
 import OcList from '../ocs/OcList';
 import { connect } from 'react-redux';
+import { compose } from 'redux';
+import { firestoreConnect } from 'react-redux-firebase';
 
 class Dashboard extends Component {
   render() {
@@ -22,9 +24,13 @@ class Dashboard extends Component {
 }
 
 const mapStateToProps = state => {
+  console.log(state);
   return {
-    ocs: state.oc.ocs
+    ocs: state.firestore.ordered.ocs
   };
 };
 
-export default connect(mapStateToProps)(Dashboard);
+export default compose(
+  firestoreConnect(['ocs']),
+  connect(mapStateToProps)
+)(Dashboard);

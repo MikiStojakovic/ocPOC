@@ -6,7 +6,7 @@ export const createOc = oc => {
       .collection('ocs')
       .add({
         ...oc,
-        conseillerFirstName: 'Kunjo',
+        conseillerFirstName: 'Smunjo',
         conseillerLastName: 'Polumenta'
       })
       .then(() => dispatch({ type: 'CREATE_OC', oc }))
