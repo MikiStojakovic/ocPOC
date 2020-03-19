@@ -1,23 +1,59 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { firestoreConnect } from 'react-redux-firebase';
+import { compose } from 'redux';
 
 const OcDetails = props => {
-  const id = props.match.params.id;
-  return (
-    <div className="container section oc-detail">
-      <div className="car z-depth-0">
-        <div className="card-content">
-          <span className="card-title">Oc Title - {id}</span>
-          <p>some text about oc</p>
-          <div>
+  const { oc } = props;
+  console.log(oc);
+  if (oc) {
+    return (
+      <div className="container section oc-detail">
+        <div className="car z-depth-0">
+          <div className="card-content">
+            <label>Oc Reference</label>
+            <div className="card-title">{oc.ocRef}</div>
+            <label>Mode soumission</label>
             <div className="card-action gret lighten-4 grey-text">
-              <div>Posted by MS Conseiller</div>
-              <div>12th March, 2pm</div>
+              {oc.modeSoumission}
+            </div>
+            <div>
+              <label>Posted by</label>
+              <div className="card-action gret lighten-4 grey-text">
+                <div>
+                  {oc.conseillerFirstName} {oc.conseillerLastName}
+                </div>
+                <div>12th March, 2pm</div>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  );
+    );
+  } else {
+    return (
+      <div className="container center">
+        <p>Loading ocs..</p>
+      </div>
+    );
+  }
 };
 
-export default OcDetails;
+const mapStateToProps = (state, ownProps) => {
+  let oc;
+  if (state.firestore.data && state.firestore.data.ocs) {
+    oc = state.firestore.data.ocs[ownProps.match.params.id];
+  }
+
+  return {
+    oc: oc
+  };
+};
+
+export default compose(
+  firestoreConnect(),
+  firestoreConnect(props => {
+    return [{ collection: 'ocs', doc: props.match.params.id }];
+  }),
+  connect(mapStateToProps)
+)(OcDetails);
