@@ -5,12 +5,15 @@ import { compose } from 'redux';
 
 const OcDetails = props => {
   const { oc } = props;
+  const id = props.match.params.id;
   console.log(oc);
   if (oc) {
     return (
       <div className="container section oc-detail">
         <div className="car z-depth-0">
           <div className="card-content">
+            <label>Oc Id</label>
+            <div className="card-title">{id}</div>
             <label>Oc Reference</label>
             <div className="card-title">{oc.ocRef}</div>
             <label>Mode soumission</label>
