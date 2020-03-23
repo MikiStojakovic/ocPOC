@@ -1,6 +1,15 @@
 import firebase from 'firebase/app';
 import 'firebase/auth';
 
+export const signOut = () => {
+  return (dispatch, getState) => {
+    firebase
+      .auth()
+      .signOut()
+      .then(dispatch({ type: 'SIGNOUT_SUCCESS' }));
+  };
+};
+
 export const signIn = credentials => {
   return (dispatch, getState) => {
     firebase
