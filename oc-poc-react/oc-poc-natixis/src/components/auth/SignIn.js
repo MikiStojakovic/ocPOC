@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { signIn } from '../../store/actions/authActions';
 
-class SingIn extends Component {
+class SignIn extends Component {
   state = {
     email: '',
     password: ''
@@ -57,4 +57,4 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(SingIn);
+export default connect(mapStateToProps, mapDispatchToProps)(SignIn);

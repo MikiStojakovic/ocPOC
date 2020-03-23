@@ -4,7 +4,7 @@ import { render } from '@testing-library/react';
 import Navbar from './components/layout/Navbar';
 import Dashboard from './components/dashboard/Dashboard';
 import OcDetails from './components/ocs/OcDetails';
-import SignIn from './components/auth/SingIn';
+import SignIn from './components/auth/SignIn';
 import SignUp from './components/auth/SignUp';
 import CreateOc from './components/ocs/CreateOc';
 
