@@ -14,7 +14,7 @@ const Navbar = props => {
         <Link to="/" className="brand-logo">
           Natixis
         </Link>
-        {links}
+        {auth.isLoaded && links}
       </div>
     </nav>
   );
