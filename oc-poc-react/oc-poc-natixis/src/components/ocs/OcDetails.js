@@ -2,11 +2,13 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { firestoreConnect } from 'react-redux-firebase';
 import { compose } from 'redux';
+import { Redirect } from 'react-router-dom';
 
 const OcDetails = props => {
-  const { oc } = props;
+  const { oc, auth } = props;
+  if (!auth.uid) return <Redirect to="/signin" />;
+
   const id = props.match.params.id;
-  console.log(oc);
   if (oc) {
     return (
       <div className="container section oc-detail">
@@ -49,7 +51,8 @@ const mapStateToProps = (state, ownProps) => {
   }
 
   return {
-    oc: oc
+    oc: oc,
+    auth: state.firebase.auth
   };
 };
 

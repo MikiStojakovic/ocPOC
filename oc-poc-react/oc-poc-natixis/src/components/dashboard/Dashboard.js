@@ -4,10 +4,14 @@ import OcList from '../ocs/OcList';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 import { firestoreConnect } from 'react-redux-firebase';
+import { Redirect } from 'react-router-dom';
 
 class Dashboard extends Component {
   render() {
-    const { ocs } = this.props;
+    const { ocs, auth } = this.props;
+
+    if (!auth.uid) return <Redirect to="/signin" />;
+
     return (
       <div className="dashboard container">
         <div className="row">
@@ -26,7 +30,8 @@ class Dashboard extends Component {
 const mapStateToProps = state => {
   console.log(state);
   return {
-    ocs: state.firestore.ordered.ocs
+    ocs: state.firestore.ordered.ocs,
+    auth: state.firebase.auth
   };
 };
 
