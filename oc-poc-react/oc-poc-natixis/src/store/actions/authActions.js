@@ -1,5 +1,6 @@
 import firebase from 'firebase/app';
 import 'firebase/auth';
+import { getFirestore } from 'redux-firestore';
 
 export const signOut = () => {
   return (dispatch, getState) => {
@@ -20,6 +21,31 @@ export const signIn = credentials => {
       })
       .catch(err => {
         dispatch({ type: 'LOGIN_ERROR', err });
+      });
+  };
+};
+
+export const signUp = newUser => {
+  return (dispatch, getState, { getFirestore }) => {
+    const firestore = getFirestore();
+    firebase
+      .auth()
+      .createUserWithEmailAndPassword(newUser.email, newUser.password)
+      .then(response => {
+        return firestore
+          .collection('users')
+          .doc(response.user.uid)
+          .set({
+            firstName: newUser.firstName,
+            lastName: newUser.lastName,
+            initials: newUser.firstName[0] + newUser.lastName[0]
+          });
+      })
+      .then(() => {
+        dispatch({ type: 'SIGNUP_SUCCESS' });
+      })
+      .catch(err => {
+        dispatch({ type: 'SIGNUP_ERROR', err });
       });
   };
 };
