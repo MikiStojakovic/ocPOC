@@ -39,6 +39,6 @@ exports.userJoined = functions.auth.user().onCreate(user => {
         time: admin.firestore.FieldValue.serverTimestamp()
       };
 
-      return createNotification(nofitication);
+      return createNotification(notification);
     });
 });
