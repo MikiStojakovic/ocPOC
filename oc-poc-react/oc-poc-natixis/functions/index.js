@@ -26,7 +26,8 @@ exports.ocCreated = functions.firestore.document('ocs/{ocId}').onCreate(doc => {
 });
 
 exports.userJoined = functions.auth.user().onCreate(user => {
-  return admin.firestore
+  return admin
+    .firestore()
     .collection('users')
     .doc(user.uid)
     .get()
