@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { firestoreConnect } from 'react-redux-firebase';
 import { compose } from 'redux';
 import { Redirect } from 'react-router-dom';
+import moment from 'moment';
 
 const OcDetails = props => {
   const { oc, auth } = props;
@@ -28,7 +29,11 @@ const OcDetails = props => {
                 <div>
                   {oc.conseillerFirstName} {oc.conseillerLastName}
                 </div>
-                <div>12th March, 2pm</div>
+                <div>
+                  {oc.createdAt
+                    ? moment(oc.createdAt.toDate()).calendar()
+                    : null}
+                </div>
               </div>
             </div>
           </div>

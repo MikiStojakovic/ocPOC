@@ -1,4 +1,5 @@
 import React from 'react';
+import moment from 'moment';
 
 const OcSummary = ({ oc }) => {
   return (
@@ -9,7 +10,7 @@ const OcSummary = ({ oc }) => {
           Created by {oc.conseillerFirstName} {oc.conseillerLastName}
         </p>
         <p className="grey-text">
-          {oc.createdAt ? oc.createdAt.toDate().toString() : null}
+          {oc.createdAt ? moment(oc.createdAt.toDate()).calendar() : null}
         </p>
       </div>
     </div>
