@@ -8,7 +8,9 @@ const OcSummary = ({ oc }) => {
         <p>
           Created by {oc.conseillerFirstName} {oc.conseillerLastName}
         </p>
-        <p className="grey-text">3rd September, 2 pm</p>
+        <p className="grey-text">
+          {oc.createdAt ? oc.createdAt.toDate().toString() : null}
+        </p>
       </div>
     </div>
   );

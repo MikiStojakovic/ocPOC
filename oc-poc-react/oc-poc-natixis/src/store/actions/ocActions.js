@@ -10,7 +10,8 @@ export const createOc = oc => {
         ...oc,
         conseillerFirstName: profile.firstName,
         conseillerLastName: profile.lastName,
-        authorId: authorId
+        authorId: authorId,
+        createdAt: new Date()
       })
       .then(() => dispatch({ type: 'CREATE_OC', oc }))
       .catch(er => dispatch({ type: 'CREATE_OC_ERROR', er }));

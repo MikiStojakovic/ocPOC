@@ -18,6 +18,7 @@ class CreateOc extends Component {
   handleSubmit = e => {
     e.preventDefault();
     this.props.createOc(this.state);
+    this.props.history.push('/');
   };
 
   render() {
