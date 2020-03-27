@@ -8,7 +8,9 @@ import { Redirect } from 'react-router-dom';
 
 class Dashboard extends Component {
   render() {
-    const { ocs, auth } = this.props;
+    const { ocs, auth, notifications } = this.props;
+    console.log(this.props);
+    console.log(notifications);
 
     if (!auth.uid) return <Redirect to="/signin" />;
 
@@ -19,7 +21,7 @@ class Dashboard extends Component {
             <OcList ocs={ocs} />
           </div>
           <div className="col s12 m5 offset-m1">
-            <Notifications />
+            <Notifications notifications={notifications} />
           </div>
         </div>
       </div>
@@ -31,6 +33,7 @@ const mapStateToProps = state => {
   console.log(state);
   return {
     ocs: state.firestore.ordered.ocs,
+    notifications: state.firestore.ordered.notifications,
     auth: state.firebase.auth
   };
 };
@@ -41,6 +44,9 @@ export default compose(
     console.log(props);
     if (!props.auth.uid) return [];
 
-    return [{ collection: 'ocs', where: ['authorId', '==', props.auth.uid] }];
+    return [
+      { collection: 'ocs', where: ['authorId', '==', props.auth.uid] },
+      { collection: 'notifications', limit: 3 }
+    ];
   })
 )(Dashboard);

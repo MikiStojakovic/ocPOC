@@ -32,7 +32,7 @@ exports.userJoined = functions.auth.user().onCreate(user => {
     .doc(user.uid)
     .get()
     .then(doc => {
-      const newUser = doc.data;
+      const newUser = doc.data();
       const notification = {
         content: 'Joined user',
         user: `${newUser.firstName} ${newUser.lastName}`,
