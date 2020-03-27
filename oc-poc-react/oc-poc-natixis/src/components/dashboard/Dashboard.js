@@ -36,6 +36,11 @@ const mapStateToProps = state => {
 };
 
 export default compose(
-  firestoreConnect(['ocs']),
-  connect(mapStateToProps)
+  connect(mapStateToProps),
+  firestoreConnect(props => {
+    console.log(props);
+    if (!props.auth.uid) return [];
+
+    return [{ collection: 'ocs', where: ['authorId', '==', props.auth.uid] }];
+  })
 )(Dashboard);
