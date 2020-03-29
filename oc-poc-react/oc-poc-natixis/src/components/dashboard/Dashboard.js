@@ -45,8 +45,12 @@ export default compose(
     if (!props.auth.uid) return [];
 
     return [
-      { collection: 'ocs', where: ['authorId', '==', props.auth.uid] },
-      { collection: 'notifications', limit: 3 }
+      {
+        collection: 'ocs',
+        where: ['authorId', '==', props.auth.uid],
+        orderBy: ['createdAt', 'desc']
+      },
+      { collection: 'notifications', limit: 3, orderBy: ['time', 'desc'] }
     ];
   })
 )(Dashboard);
