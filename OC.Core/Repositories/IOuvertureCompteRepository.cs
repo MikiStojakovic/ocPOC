@@ -8,6 +8,6 @@ namespace OC.Core.Repositories
 {
     public interface IOuvertureCompteRepository: IRepository<OuvertureCompte>
     {
-        Task<IEnumerable<OuvertureCompte>> GetAllByConseillerId();
+        Task<IEnumerable<OuvertureCompte>> GetAllByConseillerId(Guid conseillerId);
     }
 }
