@@ -6,7 +6,7 @@ namespace OC.Core.Models
 {
     public class OuvertureCompte
     { 
-        public int Id { get; set; }
+        public Guid Id { get; set; }
         public string OcRef { get; set; }
         public string DocPath { get; set; }
         public OuvertureCompteDetails OcDetails { get; set; }

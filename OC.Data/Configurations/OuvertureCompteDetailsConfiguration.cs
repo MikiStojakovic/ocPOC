@@ -27,10 +27,9 @@ namespace OC.Data.Configurations
             builder
                 .Property(ocd => ocd.ModeSoumission);
 
-            builder
-                .HasOne(ocd => ocd.OuvertureCompte)
-                .WithOne(oc => oc.OcDetails)
-                .HasForeignKey("OuvertureCompteId");
+            //builder
+            //    .HasOne(ocd => ocd.OuvertureCompte)
+            //    .WithOne(oc => oc.OcDetails);
                 
         }
     }

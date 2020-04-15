@@ -33,6 +33,11 @@ namespace OC.Data.Configurations
                 .HasForeignKey(oc => oc.FourisseurId);
 
             builder
+                .HasOne(oc => oc.OcDetails)
+                .WithOne(ocd => ocd.OuvertureCompte)
+                .HasForeignKey<OuvertureCompteDetails>(ocd => ocd.OuvertureCompteId);
+
+            builder
                 .ToTable("OuvertureComptes");
         }
     }
