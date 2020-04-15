@@ -10,8 +10,6 @@ namespace OC.Core.Models
         public string OcRef { get; set; }
         public string DocPath { get; set; }
         public OuvertureCompteDetails OcDetails { get; set; }
-        public Guid FourisseurId { get; set; }
-        public Fourisseur fourisseur { get; set; }
         public Guid ConseillerId { get; set; }
         public Conseiller conseiller { get; set; }
     }    

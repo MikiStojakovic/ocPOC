@@ -27,10 +27,6 @@ namespace OC.Data.Configurations
                 .WithMany(c => c.Ocs)
                 .HasForeignKey(oc => oc.ConseillerId);
 
-            builder
-                .HasOne(oc => oc.fourisseur)
-                .WithMany(f => f.Ocs)
-                .HasForeignKey(oc => oc.FourisseurId);
 
             builder
                 .HasOne(oc => oc.OcDetails)

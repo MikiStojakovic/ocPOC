@@ -9,10 +9,10 @@ namespace OC.Core.Models
     {
         public Fourisseur()
         {
-            Ocs = new Collection<OuvertureCompte>();
+            Conseillers = new Collection<Conseiller>();
         }
         public Guid Id { get; set; }
         public string Name { get; set; }
-        public ICollection<OuvertureCompte> Ocs { get; set; }
+        public ICollection<Conseiller> Conseillers { get; set; }
     }
 }

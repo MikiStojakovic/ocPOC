@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using OC.Data;
 
 namespace OC.Data.Migrations
 {
     [DbContext(typeof(NatixisDbContext))]
-    partial class NatixisDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200415121413_InitialDB")]
+    partial class InitialDB
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -28,9 +30,6 @@ namespace OC.Data.Migrations
                     b.Property<string>("Code")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<Guid>("FourisseurId")
-                        .HasColumnType("uniqueidentifier");
-
                     b.Property<string>("Nom")
                         .HasColumnType("nvarchar(max)");
 
@@ -38,8 +37,6 @@ namespace OC.Data.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("FourisseurId");
 
                     b.ToTable("Conseillers");
                 });
@@ -71,6 +68,9 @@ namespace OC.Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<Guid>("FourisseurId")
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<string>("OcRef")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -78,6 +78,8 @@ namespace OC.Data.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("ConseillerId");
+
+                    b.HasIndex("FourisseurId");
 
                     b.ToTable("OuvertureComptes");
                 });
@@ -112,20 +114,17 @@ namespace OC.Data.Migrations
                     b.ToTable("OuvertureCompteDetails");
                 });
 
-            modelBuilder.Entity("OC.Core.Models.Conseiller", b =>
-                {
-                    b.HasOne("OC.Core.Models.Fourisseur", "Fourisseur")
-                        .WithMany("Conseillers")
-                        .HasForeignKey("FourisseurId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
             modelBuilder.Entity("OC.Core.Models.OuvertureCompte", b =>
                 {
                     b.HasOne("OC.Core.Models.Conseiller", "conseiller")
                         .WithMany("Ocs")
                         .HasForeignKey("ConseillerId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("OC.Core.Models.Fourisseur", "fourisseur")
+                        .WithMany("Ocs")
+                        .HasForeignKey("FourisseurId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

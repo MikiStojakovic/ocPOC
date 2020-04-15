@@ -16,5 +16,7 @@ namespace OC.Core.Models
         public string Nom { get; set; }
         public string Prenom { get; set; }
         public ICollection<OuvertureCompte> Ocs { get; set; }
+        public Fourisseur Fourisseur { get; set; }
+        public Guid FourisseurId { get; set; }
     }
 }

@@ -12,16 +12,21 @@ namespace OC.Data.Configurations
         public void Configure(EntityTypeBuilder<Conseiller> builder)
         {
             builder
-                .HasKey(m => m.Id);
+                .HasKey(c => c.Id);
 
             builder
-                .Property(m => m.Code);
+                .Property(c => c.Code);
 
             builder
-                .Property(m => m.Nom);
+                .Property(c => c.Nom);
 
             builder
-                .Property(m => m.Prenom);
+                .Property(c => c.Prenom);
+
+            builder
+                .HasOne(c => c.Fourisseur)
+                .WithMany(f => f.Conseillers)
+                .HasForeignKey(c => c.FourisseurId);
         }
     }
 }
