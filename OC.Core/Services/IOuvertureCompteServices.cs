@@ -8,12 +8,13 @@ namespace OC.Core.Services
 {
     public interface IOuvertureCompteServices
     {
-        Task<OuvertureCompte> GetOuvertureCompteById(Guid id);
+        Task<Tuple<OuvertureCompte, OuvertureCompteDetails>> GetOuvertureCompteById(Guid id);
         Task<IEnumerable<OuvertureCompte>> GetAllOuvertureCompte();
-        Task<IEnumerable<OuvertureCompte>> GetAllOuvertureCompteByFoursseur();
-        Task<IEnumerable<OuvertureCompte>> GetAllOuvertureCompteByConseiller();
-        Task<OuvertureCompte> CreateOuvertureCompte(OuvertureCompte ouvertureCompte);
-        Task UpdateOuvertureCompte(OuvertureCompte ouvertureCompteToBeUpdated, OuvertureCompte ouvertureCompte);
+        Task<IEnumerable<OuvertureCompte>> GetAllOuvertureCompteByFourisseurId(Guid fourisseurId);
+        Task<IEnumerable<OuvertureCompte>> GetAllOuvertureCompteByConseillerId(Guid ConseillerId);
+        Task<OuvertureCompte> CreateOuvertureCompte(OuvertureCompte ouvertureCompte, OuvertureCompteDetails ouvertureCompteDetails);
+        Task UpdateOuvertureCompte(OuvertureCompte ouvertureCompteToBeUpdated, OuvertureCompte ouvertureCompte,
+            OuvertureCompteDetails ouvertureCompteDetailsToBeUpdated, OuvertureCompteDetails ouvertureCompteDetails);
         Task DeleteOuvertureCompte(OuvertureCompte ouvertureCompte);
     }
 }

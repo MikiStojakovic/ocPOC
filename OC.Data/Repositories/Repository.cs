@@ -38,7 +38,7 @@ namespace OC.Data.Repositories
             return await Context.Set<TEntity>().ToListAsync();
         }
 
-        public ValueTask<TEntity> GetByIdAsync(int id)
+        public ValueTask<TEntity> GetByIdAsync(Guid id)
         {
             return Context.Set<TEntity>().FindAsync(id);
         }

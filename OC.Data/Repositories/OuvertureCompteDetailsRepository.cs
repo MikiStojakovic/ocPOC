@@ -3,6 +3,8 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using OC.Core.Models;
+using System.Threading.Tasks;
+using System.Linq;
 
 namespace OC.Data.Repositories
 {
@@ -17,6 +19,11 @@ namespace OC.Data.Repositories
             : base(context)
         {
 
+        }
+
+        public async Task<OuvertureCompteDetails> GetOuvertureCompteDetailsByOcId(Guid ouvertureCompteId)
+        {
+            return NatixisDbContext.OuvertureCompteDetails.Where(ocd => ocd.OuvertureCompteId == ouvertureCompteId).FirstOrDefault();
         }
     }
 }

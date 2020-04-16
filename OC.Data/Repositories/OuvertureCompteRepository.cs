@@ -20,8 +20,19 @@ namespace OC.Data.Repositories
 
         }
         public async Task<IEnumerable<OuvertureCompte>> GetAllByConseillerId(Guid conseillerId)
-        {            
+        {
             return NatixisDbContext.OuvertureComptes.Where(oc => oc.ConseillerId == conseillerId).ToList();
+        }
+
+        public Task<IEnumerable<OuvertureCompte>> GetAllOuvertureCompteByFourisseurId(Guid fourisseurId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public async Task UpdateOuvertureCompte(OuvertureCompte ouvertureCompteToBeUpdate, OuvertureCompte ouvertureCompte, OuvertureCompteDetails ouvertureCompteDetailsToBeUpdate, OuvertureCompteDetails ouvertureCompteDetails)
+        {
+            NatixisDbContext.OuvertureComptes.Update(ouvertureCompteToBeUpdate);
+            NatixisDbContext.OuvertureCompteDetails.Update(ouvertureCompteDetailsToBeUpdate);
         }
     }
 }
