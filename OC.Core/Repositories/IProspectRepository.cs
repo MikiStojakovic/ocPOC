@@ -10,7 +10,7 @@ namespace OC.Core.Repositories
     {
         Task<IEnumerable<Prospect>> GetAllProspect();
         Task<Prospect> GetProspectById(Guid id);
-        Task<IEnumerable<Prospect>> GetAllProspectByConseillerId();
+        Task<IEnumerable<Prospect>> GetAllProspectByConseillerId(Guid conseillerId);
         Task<Prospect> Create(Prospect prospect);
         Task<bool> Delete(string id);
         void Update(string id, Prospect prospect);
