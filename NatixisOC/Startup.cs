@@ -12,8 +12,10 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using MongoDB.Driver;
+using OC.Core.Repositories;
 using OC.Core.UnitOfWork;
 using OC.Data;
+using OC.Data.MongoDB.Repositories;
 using OC.Data.MongoDB.Setting;
 
 namespace NatixisOC
@@ -32,7 +34,8 @@ namespace NatixisOC
         {
             services.AddControllers();
             //Sql Server Configuration 
-            services.AddDbContext<NatixisDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DevNatixisOdc"), x => x.MigrationsAssembly("OC.Data")));
+            services.AddDbContext<NatixisDbContext>(options => 
+                                                        options.UseSqlServer(Configuration.GetConnectionString("DevNatixisOdc"), x => x.MigrationsAssembly("OC.Data")));
             services.AddScoped<IUnitOfWork, UnitOfWork>();
             //MongoDB Configuration
             services.Configure<Settings>(
@@ -44,6 +47,7 @@ namespace NatixisOC
             services.AddSingleton<IMongoClient, MongoClient>(
                 x => new MongoClient(Configuration.GetValue<string>("MongoDB:ConnectionString")));
             services.AddTransient<IDatabaseSettings, DatabaseSetting>();
+            services.AddScoped<IProspectRepository, ProspectRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
