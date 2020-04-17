@@ -10,6 +10,8 @@ namespace OC.Core.UnitOfWork
     {
         IOuvertureCompteRepository Ocs { get; }
         IOuvertureCompteDetailsRepository OcsDetails { get; }
+        IFourisseurRepository Fourisseurs { get; }
+        IConseillerRepository Conseillers { get;  }
         Task<int> CommitAsync();
     }
 }

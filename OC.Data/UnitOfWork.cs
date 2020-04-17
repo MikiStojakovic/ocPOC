@@ -10,26 +10,31 @@ namespace OC.Data
 {
     public class UnitOfWork : IUnitOfWork
     {
-        private readonly NatixisDbContext _context;
-        private IOuvertureCompteRepository _overtureCompteRepository;
-        private IOuvertureCompteDetailsRepository _overtureCompteDetailsRepository;
+        private readonly NatixisDbContext context;
+        private IOuvertureCompteRepository overtureCompteRepository;
+        private IOuvertureCompteDetailsRepository overtureCompteDetailsRepository;
+        private IFourisseurRepository fourisseurRepository;
+        private IConseillerRepository conseillerRepository;
 
         public UnitOfWork(NatixisDbContext context)
         {
-            _context = context;
+            this.context = context;
         }
-        public IOuvertureCompteRepository Ocs => _overtureCompteRepository = _overtureCompteRepository ?? new OuvertureCompteRepository(_context);
+        public IOuvertureCompteRepository Ocs => overtureCompteRepository = overtureCompteRepository ?? new OuvertureCompteRepository(context);
 
-        public IOuvertureCompteDetailsRepository OcsDetails => _overtureCompteDetailsRepository = _overtureCompteDetailsRepository ?? new OuvertureCompteDetailsRepository(_context);
+        public IOuvertureCompteDetailsRepository OcsDetails => overtureCompteDetailsRepository = overtureCompteDetailsRepository ?? new OuvertureCompteDetailsRepository(context);
+
+        public IFourisseurRepository Fourisseurs => fourisseurRepository = fourisseurRepository ?? new FourisseurRepository(context);
+        public IConseillerRepository Conseillers => conseillerRepository = conseillerRepository ?? new ConseillerRepository(context);
 
         public async Task<int> CommitAsync()
         {
-            return await _context.SaveChangesAsync();
+            return await context.SaveChangesAsync();
         }
 
         public void Dispose()
         {
-            _context.Dispose();
+            context.Dispose();
         }
     }
 }
