@@ -1,11 +1,12 @@
-﻿using System;
+﻿using CopartisOC.Domain.Common;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Text;
 
 namespace CopartisOC.Domain.Entities
 {
-    public class Conseiller
+    public class Conseiller : AuditableEntity
     {
         public Conseiller()
         {

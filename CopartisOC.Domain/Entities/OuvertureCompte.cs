@@ -1,10 +1,11 @@
-﻿using System;
+﻿using CopartisOC.Domain.Common;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace CopartisOC.Domain.Entities
 {
-    public class OuvertureCompte
+    public class OuvertureCompte : AuditableEntity
     {
         public Guid Id { get; set; }
         public string OcRef { get; set; }
