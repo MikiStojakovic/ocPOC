@@ -7,6 +7,10 @@ namespace CopartisOC.Domain.Entities
 {
     public class OuvertureCompte : AuditableEntity
     {
+        public OuvertureCompte()
+        {
+            OcDetails = new OuvertureCompteDetails();
+        }
         public Guid Id { get; set; }
         public string OcRef { get; set; }
         public string DocPath { get; set; }
