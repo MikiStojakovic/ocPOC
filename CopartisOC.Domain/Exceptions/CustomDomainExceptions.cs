@@ -4,7 +4,7 @@ using System.Text;
 
 namespace CopartisOC.Domain.Exceptions
 {
-    public class BaseException
+    public class CustomDomainExceptions
     {
     }
 }

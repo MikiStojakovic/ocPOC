@@ -14,7 +14,7 @@ namespace CopartisOC.Domain.Entities
         public Guid Id { get; set; }
         public string OcRef { get; set; }
         public string DocPath { get; set; }
-        public OuvertureCompteDetails OcDetails { get; set; }
+        public OuvertureCompteDetails OcDetails { get; private set; }
         public Guid ConseillerId { get; set; }
         public Conseiller conseiller { get; set; }
     }
