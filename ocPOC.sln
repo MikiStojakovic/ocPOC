@@ -33,6 +33,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{C7F692B8-F
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CopartisOC.Domain.Tests", "CopartisOC.Domain.Tests\CopartisOC.Domain.Tests.csproj", "{846576AD-44EC-4384-B070-F934E66326F7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CopartisOC.Application", "CopartisOC.Application\CopartisOC.Application.csproj", "{0E821113-2EFB-4DCD-B461-ECCFB6016ECF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -71,6 +73,10 @@ Global
 		{846576AD-44EC-4384-B070-F934E66326F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{846576AD-44EC-4384-B070-F934E66326F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{846576AD-44EC-4384-B070-F934E66326F7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0E821113-2EFB-4DCD-B461-ECCFB6016ECF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0E821113-2EFB-4DCD-B461-ECCFB6016ECF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0E821113-2EFB-4DCD-B461-ECCFB6016ECF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0E821113-2EFB-4DCD-B461-ECCFB6016ECF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -87,6 +93,7 @@ Global
 		{AD2C40EE-6B28-48CD-81C6-9E95419BF7EB} = {0EDFA682-ACA2-4128-836C-9FF52BACE40D}
 		{C7F692B8-F87E-4256-BBC2-774C4E5D27C0} = {3B86709C-2672-4B01-8A8E-92A1AB621A08}
 		{846576AD-44EC-4384-B070-F934E66326F7} = {C7F692B8-F87E-4256-BBC2-774C4E5D27C0}
+		{0E821113-2EFB-4DCD-B461-ECCFB6016ECF} = {0EDFA682-ACA2-4128-836C-9FF52BACE40D}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {4C4E28F5-EE09-4619-A201-4E200C7BE3C0}

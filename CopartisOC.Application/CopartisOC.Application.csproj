@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Conseiller\Commands\DeleteConseiller\" />
+    <Folder Include="Conseiller\Commands\UpdateConseiller\" />
+    <Folder Include="Conseiller\Queries\GetConseiller\" />
+    <Folder Include="Fourisseur\Commands\" />
+    <Folder Include="Fourisseur\Queries\" />
+    <Folder Include="OuvertureCompte\Commands\" />
+    <Folder Include="OuvertureCompte\Queries\" />
+    <Folder Include="Prospect\Commands\" />
+    <Folder Include="Prospect\Queries\" />
+  </ItemGroup>
+
+</Project>
