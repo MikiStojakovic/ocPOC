@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using CopartisOC.Application.Common.Behaviours;
 using MediatR;
 using Microsoft.Extensions.DependencyInjection;
 using System;
@@ -12,6 +13,7 @@ namespace CopartisOC.Application
         {
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
             services.AddMediatR(Assembly.GetExecutingAssembly());
+            services.AddTransient(typeof(IPipelineBehavior<,>), typeof(PerformanceBehaviour<,>));
             return services;
         }
     }
