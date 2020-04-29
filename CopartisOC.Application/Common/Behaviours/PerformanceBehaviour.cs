@@ -53,9 +53,10 @@ namespace CopartisOC.Application.Common.Behaviours
 
                 _logger.LogWarning("CopartisOC Long Running Request: {Name} ({ElapsedMilliseconds} milliseconds) {@UserId} {@UserName} {@Request}",
                         requestName, elapsedMilliseconds, "userId todo", "userName todo", request);
-                        //requestName, elapsedMilliseconds, userId, userName, request);
+                //requestName, elapsedMilliseconds, userId, userName, request);
             }
 
             return response;
         }
+    }
 }
