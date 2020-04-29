@@ -1,6 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using Microsoft.EntityFrameworkCore;
+using DomainEntities = CopartisOC.Domain.Entities;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -8,10 +7,10 @@ namespace CopartisOC.Application.Common.Interfaces
 {
     public interface IApplicationDbContext
     {
-        DbSet<Conseiller> Conseillers { get; set; }
-        DbSet<Fourisseur> Fourisseurs { get; set; }
-        DbSet<OuvertureCompte> OuvertureComptes { get; set; }
-        DbSet<Prospect> Prospects { get; set; }
+        DbSet<DomainEntities.Fourisseur> Fourisseurs { get; set; }
+        DbSet<DomainEntities.Conseiller> Conseillers { get; set; }
+        DbSet<DomainEntities.OuvertureCompte> OuvertureComptes { get; set; }
+        DbSet<DomainEntities.Prospect> Prospects { get; set; }
         
         Task<int> SaveChangesAsync(CancellationToken cancellationToken);
     }
