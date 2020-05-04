@@ -14,7 +14,7 @@ namespace CopartisOC.Application.Conseiller.Commands.CreateConseiller
         private readonly IApplicationDbContext _context;
         public CreateConseillerCommandHandler(IApplicationDbContext context)
         {
-
+            _context = context;
         }
 
         public async Task<Guid> Handle(CreateConseillerCommand request, CancellationToken cancellationToken)

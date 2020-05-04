@@ -6,7 +6,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Conseiller\Commands\DeleteConseiller\" />
     <Folder Include="Conseiller\Commands\UpdateConseiller\" />
     <Folder Include="Conseiller\Queries\GetConseiller\" />
     <Folder Include="Fourisseur\Commands\" />
