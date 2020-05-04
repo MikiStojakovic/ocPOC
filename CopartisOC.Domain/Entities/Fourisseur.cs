@@ -11,7 +11,7 @@ namespace CopartisOC.Domain.Entities
         {
             Conseillers = new Collection<Conseiller>();
         }
-        public Guid Id { get; set; }
+        public Guid FourisseurId { get; set; }
         public string Name { get; set; }
         public ICollection<Conseiller> Conseillers { get; set; }
     }

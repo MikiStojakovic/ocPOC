@@ -7,7 +7,6 @@
 
   <ItemGroup>
     <Folder Include="Fourisseur\Commands\" />
-    <Folder Include="Fourisseur\Queries\" />
     <Folder Include="OuvertureCompte\Commands\" />
     <Folder Include="OuvertureCompte\Queries\" />
     <Folder Include="Prospect\Commands\" />
