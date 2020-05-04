@@ -21,7 +21,7 @@ namespace CopartisOC.Application.Conseiller.Commands.CreateConseiller
         {
             var entity = new CoreDomainEntities.Conseiller
             {
-                Id = Guid.NewGuid(),
+                ConseillerId = Guid.NewGuid(),
                 Code = request.Code,
                 Nom = request.Nom,
                 Prenom = request.Prenom,
@@ -32,7 +32,7 @@ namespace CopartisOC.Application.Conseiller.Commands.CreateConseiller
 
             await _context.SaveChangesAsync(cancellationToken);
 
-            return entity.Id;
+            return entity.ConseillerId;
         }
     }
 }

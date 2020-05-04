@@ -12,7 +12,7 @@ namespace CopartisOC.Domain.Entities
         {
             Ocs = new Collection<OuvertureCompte>();
         }
-        public Guid Id { get; set; }
+        public Guid ConseillerId { get; set; }
         public string Code { get; set; }
         public string Nom { get; set; }
         public string Prenom { get; set; }

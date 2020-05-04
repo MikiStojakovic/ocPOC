@@ -3,9 +3,9 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace CopartisOC.Application.Conseiller.Commands.CreateConseiller
+namespace CopartisOC.Application.Conseiller.Commands.UpdateConseiller
 {
-    public class CreateConseillerCommand : IRequest<Guid>
+    public class UpdateConseillerCommand : IRequest<Guid>
     {
         public Guid ConseillerId { get; set; }
         public string Code { get; set; }
