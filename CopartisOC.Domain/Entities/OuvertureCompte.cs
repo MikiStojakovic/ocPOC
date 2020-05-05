@@ -12,7 +12,7 @@ namespace CopartisOC.Domain.Entities
         {
             OcDetails = new OuvertureCompteDetails();
         }
-        public Guid Id { get; set; }
+        public Guid OuvertureCompteId { get; set; }
         public string OcRef { get; set; }
         public string DocPath { get; set; }
         public ModeSoumission ModeSoumission { get; set; }

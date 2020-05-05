@@ -13,4 +13,9 @@
     <PackageReference Include="coverlet.collector" Version="1.0.1" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\CopartisOC.Application\CopartisOC.Application.csproj" />
+    <ProjectReference Include="..\CopartisOC.Domain\CopartisOC.Domain.csproj" />
+  </ItemGroup>
+
 </Project>
