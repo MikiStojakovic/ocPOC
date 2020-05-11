@@ -3,6 +3,8 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <LangVersion>8.0</LangVersion>
+    <RootNamespace>CopartisOC.WebUI</RootNamespace>
+    <AssemblyName>CopartisOC.WebUI</AssemblyName>
   </PropertyGroup>
 
   <ItemGroup>
