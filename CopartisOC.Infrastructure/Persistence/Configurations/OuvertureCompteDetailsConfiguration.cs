@@ -5,7 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace CopartisOC.Infrastructure.Configurations
+namespace CopartisOC.Infrastructure.Persistence.Configurations
 {
     public class OuvertureCompteDetailsConfiguration : IEntityTypeConfiguration<OuvertureCompteDetails>
     {
