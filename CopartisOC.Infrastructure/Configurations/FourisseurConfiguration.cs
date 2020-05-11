@@ -9,11 +9,6 @@ namespace CopartisOC.Infrastructure.Configurations
 {
     public class FourisseurConfiguration : IEntityTypeConfiguration<Fourisseur>
     {
-        public FourisseurConfiguration()
-        {
-
-        }
-
         public void Configure(EntityTypeBuilder<Fourisseur> builder)
         {
             builder.Property(f => f.Name)
