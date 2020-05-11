@@ -7,7 +7,7 @@ using System.Text;
 
 namespace CopartisOC.Infrastructure.Configurations
 {
-    class OuvertureCompteConfiguration : IEntityTypeConfiguration<OuvertureCompte>
+    public class OuvertureCompteConfiguration : IEntityTypeConfiguration<OuvertureCompte>
     {
         public void Configure(EntityTypeBuilder<OuvertureCompte> builder)
         {
