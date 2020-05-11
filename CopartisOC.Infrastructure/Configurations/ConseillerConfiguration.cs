@@ -7,7 +7,7 @@ using System.Text;
 
 namespace CopartisOC.Infrastructure.Configurations
 {
-    class ConseillerConfiguration : IEntityTypeConfiguration<Conseiller>
+    public class ConseillerConfiguration : IEntityTypeConfiguration<Conseiller>
     {
         public void Configure(EntityTypeBuilder<Conseiller> builder)
         {
