@@ -11,8 +11,14 @@ namespace CopartisOC.Infrastructure.Persistence.Configurations
     {
         public void Configure(EntityTypeBuilder<Fourisseur> builder)
         {
+            builder
+                .HasKey(f => f.FourisseurId);
+
             builder.Property(f => f.Name)
-                .IsRequired();                
+                .IsRequired();
+
+            builder
+                .ToTable("Fourisseur");
         }
     }
 }
