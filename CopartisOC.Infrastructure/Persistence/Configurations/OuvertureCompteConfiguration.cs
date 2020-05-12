@@ -11,8 +11,7 @@ namespace CopartisOC.Infrastructure.Persistence.Configurations
     {
         public void Configure(EntityTypeBuilder<OuvertureCompte> builder)
         {
-            builder.Property(oc => oc.OuvertureCompteId)
-                .IsRequired();
+            builder.HasKey(oc => oc.OuvertureCompteId);
 
             builder.Property(oc => oc.OcRef)
                 .HasMaxLength(15)
@@ -22,7 +21,13 @@ namespace CopartisOC.Infrastructure.Persistence.Configurations
 
             builder.Property(oc => oc.ModeSoumission);
 
-            builder.Property(oc => oc.ConseillerId);
+            builder
+                .HasOne(oc => oc.conseiller)
+                .WithMany(c => c.Ocs)
+                .HasForeignKey(oc => oc.ConseillerId);
+
+            builder
+                .OwnsOne(oc => oc.OcDetails);
         }
     }
 }
