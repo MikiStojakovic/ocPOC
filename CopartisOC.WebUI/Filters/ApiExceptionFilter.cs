@@ -7,7 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace CopartisOC.WebUI
+namespace CopartisOC.WebUI.Filters
 {
     public class ApiExceptionFilter : ExceptionFilterAttribute
     {
