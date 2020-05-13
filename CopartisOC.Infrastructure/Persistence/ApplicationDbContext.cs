@@ -33,7 +33,7 @@ namespace CopartisOC.Infrastructure.Persistence
         public DbSet<OuvertureCompte> OuvertureComptes { get; set; }
         public DbSet<Fourisseur> Fourisseurs { get; set; }
         public DbSet<Conseiller> Conseillers { get; set; }
-        public DbSet<Prospect> Prospects { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public DbSet<Prospect> Prospects { get; set; }
 
         public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = new CancellationToken())
         {

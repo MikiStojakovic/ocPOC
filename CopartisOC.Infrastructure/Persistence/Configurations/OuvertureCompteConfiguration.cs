@@ -27,7 +27,17 @@ namespace CopartisOC.Infrastructure.Persistence.Configurations
                 .HasForeignKey(oc => oc.ConseillerId);
 
             builder
-                .OwnsOne(oc => oc.OcDetails);
+                .OwnsOne(oc => oc.OcDetails, navigationBuilder =>
+                    {
+                        navigationBuilder.Property(p => p.TypeCompte)
+                            .HasColumnName("TypeCompte");
+
+                        navigationBuilder.Property(p => p.NatureCompte);
+
+                        navigationBuilder.Property(p => p.TypeOuverture);
+
+                        navigationBuilder.ToTable("OuvertureCompteDetails");
+                    });
         }
     }
 }

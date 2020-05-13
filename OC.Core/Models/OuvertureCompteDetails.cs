@@ -1,9 +1,11 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace OC.Core.Models
 {
+    [Owned]
     public class OuvertureCompteDetails
     {
         public Guid Id { get; set; }        

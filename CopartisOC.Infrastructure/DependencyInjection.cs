@@ -1,6 +1,7 @@
 ﻿using CopartisOC.Application.Common.Interfaces;
 using CopartisOC.Infrastructure.Identity;
 using CopartisOC.Infrastructure.Persistence;
+using CopartisOC.Infrastructure.Services;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -31,8 +32,8 @@ namespace CopartisOC.Infrastructure
                     .AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddIdentityServer()
                 .AddApiAuthorization<ApplicationUser, ApplicationDbContext>();
-            //services.AddTransient<IDateTime, DateTimeService>();
-            //services.AddTransient<IIdentityService, IdentityService>();
+            services.AddTransient<IDateTime, DateTimeService>();
+            services.AddTransient<IIdentityService, IdentityService>();
 
             services.AddAuthentication()
                 .AddIdentityServerJwt();
