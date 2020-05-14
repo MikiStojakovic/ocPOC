@@ -12,5 +12,8 @@
     "jest"
   ],
   "author": "Miroslav Stojakovic",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^26.0.1"
+  }
 }

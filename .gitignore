@@ -102,3 +102,25 @@ msbuild.wrn
 
 #config
 /oc-poc-react/oc-poc-natixis/src/config/fbConfig.js
+
+# dependencies
+/CopartisOC.WebUI/ClientApp/refactoring-js-app/node_modules
+/CopartisOC.WebUI/ClientApp/refactoring-js-app/.pnp
+/CopartisOC.WebUI/ClientApp/refactoring-js-app/.pnp.js
+
+# testing
+/CopartisOC.WebUI/ClientApp//refactoring-js-app/coverage
+
+# production
+/CopartisOC.WebUI/ClientApp/refactoring-js-app/build
+
+# misc
+/CopartisOC.WebUI/ClientApp/refactoring-js-app/.DS_Store
+/CopartisOC.WebUI/ClientApp/refactoring-js-app/.env.local
+/CopartisOC.WebUI/ClientApp/refactoring-js-app/.env.development.local
+/CopartisOC.WebUI/ClientApp/refactoring-js-app/.env.test.local
+/CopartisOC.WebUI/ClientApp/refactoring-js-app/.env.production.local
+
+/CopartisOC.WebUI/ClientApp/refactoring-js-app/npm-debug.log*
+/CopartisOC.WebUI/ClientApp/refactoring-js-app/yarn-debug.log*
+/CopartisOC.WebUI/ClientApp/refactoring-js-app/yarn-error.log*
