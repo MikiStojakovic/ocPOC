@@ -4,7 +4,8 @@
   "description": "refactoring exerice based on Martin Fowler Refactoring 2nd edition",
   "main": "main.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "start": "babel src --out-dir dist"
   },
   "keywords": [
     "js",
