@@ -23,6 +23,14 @@ function statement(invoice, plays) {
   return result;
 }
 
+function totalVolumeCredits() {
+  let volumeCredits = 0;
+  for (let perf of invoice.performances) {
+    volumeCredits += volumeCreditsFor(perf);
+  }
+  return volumeCredits;
+}
+
 function usd(aNumber) {
   return new Intl.NumberFormat('en-US', {
     style: 'currency',
