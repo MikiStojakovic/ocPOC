@@ -21,6 +21,14 @@ function statement(invoice, plays) {
   return result;
 }
 
+function holdMyBeer() {
+  let totalAmount = 0;
+  for (let perf of invoice.performances) {
+    totalAmount += amountFor(perf);
+  }
+  return totalAmount;
+}
+
 function totalVolumeCredits() {
   let volumeCredits = 0;
   for (let perf of invoice.performances) {
