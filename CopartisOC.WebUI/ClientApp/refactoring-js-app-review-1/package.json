@@ -1,0 +1,11 @@
+{
+  "name": "refactoring-js-app-review-1",
+  "version": "1.0.0",
+  "description": "Refactoring exercise ",
+  "main": "main.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "author": "Miroslav Stojakovic",
+  "license": "ISC"
+}
