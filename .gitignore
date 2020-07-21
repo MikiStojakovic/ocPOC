@@ -124,3 +124,25 @@ msbuild.wrn
 /CopartisOC.WebUI/ClientApp/refactoring-js-app/npm-debug.log*
 /CopartisOC.WebUI/ClientApp/refactoring-js-app/yarn-debug.log*
 /CopartisOC.WebUI/ClientApp/refactoring-js-app/yarn-error.log*
+
+# dependencies
+/CopartisOC.WebUI/ClientApp/refactoring-js-app-review-1/node_modules
+/CopartisOC.WebUI/ClientApp/refactoring-js-app-review-1/.pnp
+/CopartisOC.WebUI/ClientApp/refactoring-js-app-review-1/.pnp.js
+
+# testing
+/CopartisOC.WebUI/ClientApp//refactoring-js-app-review-1/coverage
+
+# production
+/CopartisOC.WebUI/ClientApp/refactoring-js-app-review-1/build
+
+# misc
+/CopartisOC.WebUI/ClientApp/refactoring-js-app-review-1/.DS_Store
+/CopartisOC.WebUI/ClientApp/refactoring-js-app-review-1/.env.local
+/CopartisOC.WebUI/ClientApp/refactoring-js-app-review-1/.env.development.local
+/CopartisOC.WebUI/ClientApp/refactoring-js-app-review-1/.env.test.local
+/CopartisOC.WebUI/ClientApp/refactoring-js-app-review-1/.env.production.local
+
+/CopartisOC.WebUI/ClientApp/refactoring-js-app-review-1/npm-debug.log*
+/CopartisOC.WebUI/ClientApp/refactoring-js-app-review-1/yarn-debug.log*
+/CopartisOC.WebUI/ClientApp/refactoring-js-app-review-1/yarn-error.log*
