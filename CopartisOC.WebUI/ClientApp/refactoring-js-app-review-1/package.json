@@ -4,6 +4,7 @@
   "description": "Refactoring exercise ",
   "main": "main.js",
   "scripts": {
+    "start": "babel src --out-dir dist",
     "test": "jest"
   },
   "author": "Miroslav Stojakovic",
