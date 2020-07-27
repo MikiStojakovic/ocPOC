@@ -67,3 +67,7 @@ function statement(invoice, plays) {
   result += "You earned ".concat(volumeCredits, " credits\n");
   return result;
 }
+
+module.exports = {
+  statement: statement
+};
