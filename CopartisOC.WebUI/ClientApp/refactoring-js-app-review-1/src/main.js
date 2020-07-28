@@ -8,9 +8,7 @@ function statement(invoice, plays) {
     } seats)\n`;
   }
 
-  let totalAmount = opaHopa();
-
-  result += `Amount owed is ${usd(totalAmount)}\n`;
+  result += `Amount owed is ${usd(opaHopa())}\n`;
   result += `You earned ${totalVolumeCredits()} credits\n`;
   return result;
 
