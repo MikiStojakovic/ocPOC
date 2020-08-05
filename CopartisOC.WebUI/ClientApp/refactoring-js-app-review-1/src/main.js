@@ -1,6 +1,5 @@
 function statement(invoice, plays) {
-  let statementData = createStatementData(invoice, plays);
-  return renderPlainText(statementData);
+  return renderPlainText(createStatementData(invoice, plays));
 
   function createStatementData(invoice, plays) {
     const statementData = {};
