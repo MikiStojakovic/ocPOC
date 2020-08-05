@@ -8,6 +8,7 @@ function statement(invoice, plays) {
     const result = Object.assign({}, aPerformance);
     result.play = playFor(result);
     result.amount = amountFor(result);
+    result.volumeCredits = volumeCreditsFor(result);
     return result;
   }
 
@@ -34,6 +35,15 @@ function statement(invoice, plays) {
       default:
         throw new Error(`unknown type: ${playFor(aPerformance).type}`);
     }
+    return result;
+  }
+
+  function volumeCreditsFor(perf) {
+    let result = 0;
+    result += Math.max(perf.audience - 30, 0);
+    // add extra credit for every ten comedy attendees
+    if ('comedy' === perf.play.type) result += Math.floor(perf.audience / 5);
+
     return result;
   }
 }
@@ -64,7 +74,7 @@ function renderPlainText(data, plays) {
     let result = 0;
     for (let perf of data.performances) {
       // add volume credits
-      result += volumeCreditsFor(perf);
+      result += perf.volumeCredits;
     }
     return result;
   }
@@ -75,15 +85,6 @@ function renderPlainText(data, plays) {
       currency: 'USD',
       minimumFractionDigits: 2,
     }).format(aNumber / 100);
-  }
-
-  function volumeCreditsFor(perf) {
-    let result = 0;
-    result += Math.max(perf.audience - 30, 0);
-    // add extra credit for every ten comedy attendees
-    if ('comedy' === perf.play.type) result += Math.floor(perf.audience / 5);
-
-    return result;
   }
 }
 
