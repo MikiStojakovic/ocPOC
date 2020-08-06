@@ -12,7 +12,7 @@ function createStatementData(invoice, plays) {
       playFor(aPerformance)
     );
     const result = Object.assign({}, aPerformance);
-    result.play = playFor(result);
+    result.play = calculator.play;
     result.amount = amountFor(result);
     result.volumeCredits = volumeCreditsFor(result);
     return result;
