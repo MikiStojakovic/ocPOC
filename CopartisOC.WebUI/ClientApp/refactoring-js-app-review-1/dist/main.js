@@ -6,56 +6,23 @@ function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o =
 
 function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
 
-function statement(invoice, plays) {
-  var totalAmount = 0;
-  var volumeCredits = 0;
-  var result = "Statement for ".concat(invoice.customer, "\n");
-  var format = new Intl.NumberFormat('en-US', {
-    style: 'currency',
-    currency: 'USD',
-    minimumFractionDigits: 2
-  }).format;
+var createStatementData = require('./createStatementData.js').createStatementData;
 
-  var _iterator = _createForOfIteratorHelper(invoice.performances),
+function statement(invoice, plays) {
+  return renderPlainText(createStatementData(invoice, plays));
+}
+
+function renderPlainText(data) {
+  var result = "Statement for ".concat(data.customer, "\n");
+
+  var _iterator = _createForOfIteratorHelper(data.performances),
       _step;
 
   try {
     for (_iterator.s(); !(_step = _iterator.n()).done;) {
       var perf = _step.value;
-      var play = plays[perf.playID];
-      var thisAmount = 0;
-
-      switch (play.type) {
-        case 'tragedy':
-          thisAmount = 40000;
-
-          if (perf.audience > 30) {
-            thisAmount += 1000 * (perf.audience - 30);
-          }
-
-          break;
-
-        case 'comedy':
-          thisAmount = 30000;
-
-          if (perf.audience > 20) {
-            thisAmount += 10000 + 500 * (perf.audience - 20);
-          }
-
-          thisAmount += 300 * perf.audience;
-          break;
-
-        default:
-          throw new Error("unknown type: ".concat(play.type));
-      } // add volume credits
-
-
-      volumeCredits += Math.max(perf.audience - 30, 0); // add extra credit for every ten comedy attendees
-
-      if ('comedy' === play.type) volumeCredits += Math.floor(perf.audience / 5); // print line for this order
-
-      result += " ".concat(play.name, ": ").concat(format(thisAmount / 100), " (").concat(perf.audience, " seats)\n");
-      totalAmount += thisAmount;
+      // print line for this order
+      result += " ".concat(perf.play.name, ": ").concat(usd(perf.amount), " (").concat(perf.audience, " seats)\n");
     }
   } catch (err) {
     _iterator.e(err);
@@ -63,9 +30,48 @@ function statement(invoice, plays) {
     _iterator.f();
   }
 
-  result += "Amount owed is ".concat(format(totalAmount / 100), "\n");
-  result += "You earned ".concat(volumeCredits, " credits\n");
+  result += "Amount owed is ".concat(usd(data.totalAmount), "\n");
+  result += "You earned ".concat(data.totalVolumeCredits, " credits\n");
   return result;
+}
+
+function htmlStatement(invoice, plays) {
+  return renderHtml(createStatementData(invoice, plays));
+}
+
+function renderHtml(data) {
+  var result = "<h1>Statement for ".concat(data.customer, "</h1>\n");
+  result += "<table>\n";
+  result += "<tr><th>play</th><th>seats</th><th>costs</th></tr>";
+
+  var _iterator2 = _createForOfIteratorHelper(data.performances),
+      _step2;
+
+  try {
+    for (_iterator2.s(); !(_step2 = _iterator2.n()).done;) {
+      var perf = _step2.value;
+      // print line for this order
+      result += "<tr><td>".concat(perf.play.name, "</td><td>").concat(perf.audience, "</td>");
+      result += "<td>".concat(usd(per.amount), "</td></tr>\n");
+    }
+  } catch (err) {
+    _iterator2.e(err);
+  } finally {
+    _iterator2.f();
+  }
+
+  result += "</table>\n";
+  result += "<p>Amount owed is <em>".concat(usd(data.totalAmount), "</em></p>\n");
+  result += "<p>You earned <em>".concat(data.totalVolumeCredits, "</em> credits</p>");
+  return result;
+}
+
+function usd(aNumber) {
+  return new Intl.NumberFormat('en-US', {
+    style: 'currency',
+    currency: 'USD',
+    minimumFractionDigits: 2
+  }).format(aNumber / 100);
 }
 
 module.exports = {
