@@ -84,6 +84,10 @@ class PerformanceCalculator {
   }
 }
 
+class TragedyCalculator extends PerformanceCalculator {}
+
+class ComedyCalculator extends PerformanceCalculator {}
+
 module.exports = {
   createStatementData: createStatementData,
 };
