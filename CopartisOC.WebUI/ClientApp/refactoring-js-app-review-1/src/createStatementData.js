@@ -18,10 +18,6 @@ function createStatementData(invoice, plays) {
     return result;
   }
 
-  function createPerformanceCalculator(aPerformance, aPlay) {
-    return new PerformanceCalculator(aPerformance, aPlay);
-  }
-
   function playFor(aPerformance) {
     return plays[aPerformance.playID];
   }
@@ -43,6 +39,10 @@ function createStatementData(invoice, plays) {
   function totalVolumeCredits(data) {
     return data.performances.reduce((total, p) => total + p.volumeCredits, 0);
   }
+}
+
+function createPerformanceCalculator(aPerformance, aPlay) {
+  return new PerformanceCalculator(aPerformance, aPlay);
 }
 
 class PerformanceCalculator {
